@@ -1,0 +1,21 @@
+Content
+Azure Data Factory permet l'intégration de données entre plusieurs systèmes cloud et sur site.
+"Intégration de données: Processus de combiner des données provenant de différentes sources pour les rendre plus cohérentes et utilisables. Sur site (on-premise): Systèmes et infrastructures qui sont physiquement présents dans une entreprise, contrairement aux services dans le cloud."
+Le partitionnement dans les bases de données distribuées améliore les performances des requêtes.
+Partitionnement: Division des données en segments plus petits pour améliorer l'accès et la gestion. Bases de données distribuées: Bases de données réparties sur plusieurs serveurs ou emplacements.
+Azure Synapse propose des notebooks intégrés pour l'analyse des données avec SQL ou Spark.
+"Notebooks intégrés: Environnement interactif où l'on peut exécuter du code (comme SQL ou Spark) directement sur les données. Spark: Moteur de traitement de données distribué, souvent utilisé pour les grandes volumétries."
+Delta Lake prend en charge la gestion des versions pour permettre le suivi des modifications des données.
+Gestion des versions: Capacité de suivre et de gérer les différentes versions de données au fil du temps.
+Le traitement en flux dans Azure Databricks permet de gérer des données en temps réel.
+"Traitement en flux (streaming): Analyse des données au fur et à mesure qu'elles sont générées en temps réel. Temps réel: Traitement immédiat des données, sans délais importants."
+Les modèles en étoile et en flocon sont utilisés pour organiser les données dans un Data Warehouse.
+"Modèle en étoile: Structure où une table centrale est reliée à des tables de dimensions. Modèle en flocon: Structure similaire à l'étoile, mais avec des dimensions normalisées."
+Azure Event Hubs permet l'ingestion de données en temps réel pour des traitements de masse.
+Ingestion: Processus de collecte et d'importation de données à partir de sources externes. Traitements de masse: Traitement de volumes importants de données.
+Le traitement par lots (batch) dans Azure Data Factory permet de traiter de grandes quantités de données périodiquement.
+"Traitement par lots: Traitement de données groupées à intervalles réguliers, par opposition au traitement en temps réel."
+Delta Lake garantit l'intégrité des données grâce aux transactions ACID.
+Intégrité des données: Exactitude et cohérence des données tout au long de leur cycle de vie.
+Azure Stream Analytics est utilisé pour analyser des flux de données en temps réel provenant de différentes sources.
+"Flux de données: Suite continue de données générées par des capteurs, systèmes ou utilisateurs. Azure Stream Analytics: Service cloud de traitement des données en temps réel."

@@ -1,0 +1,2 @@
+Question,Options,Correct Answer,Justification
+You have created an external table named ExtTable in Azure Data Explorer. Now a database user needs to run a KQL (Kusto Query Language) query on this external table. Which of the following function should he use to refer to this table?,a) external_table() - b) access_table() - c) ext_table() - d) None of the above,a) external_table(),a) external_table(): This function is used in KQL to refer to an external table in Azure Data Explorer. Other options do not exist in KQL.

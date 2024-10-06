@@ -1,0 +1,11 @@
+[user]
+	name = fara
+	email = fara.niang.ext@suez.com
+[core]
+	autocrlf = true
+	excludesfile = C:\\Users\\ZT5549\\AppData\\Roaming\\GitForce\\.gitexcludesfile
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

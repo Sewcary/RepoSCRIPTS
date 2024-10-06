@@ -1,0 +1,10 @@
+# Ignorer tous les fichiers dans ce répertoire
+/Formation quotidienne chat gpt/
+
+# Ignorer les fichiers CSV volumineux
+*.csv
+
+# Ignorer les fichiers secrets
+/Formation quotidienne chat gpt/secret.json
+"Formation quotidienne chat gpt/secret.json" 
+"Formation quotidienne chat gpt/azure_setting_data_factory.py" 

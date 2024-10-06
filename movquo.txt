@@ -1,0 +1,109 @@
+import keyboardimport keyboard
+
+stop_script = False
+
+for q in questions:
+    if keyboard.is_pressed('c'):  # Check if 'c' key is pressed
+        stop_script = True
+        break
+    if stop_script:
+        break
+    try:
+        screen_width, screen_height = pyautogui.size()  
+
+        pyautogui.moveTo(3324,  210 , duration=2)   #AJoute    
+        pyautogui.click()
+        
+        pyautogui.moveTo(2533,  594 , duration=2)#Zoone de texte
+        pyautogui.click()
+        pyperclip.copy(q)
+        pyautogui.hotkey('ctrl', 'v') 
+        
+        pyautogui.moveTo(3135,  829 , duration=2) #ajoute bleu
+        pyautogui.click()
+        
+        pyautogui.moveTo(3126, 980 , duration=5) # Sujet terminer
+        pyautogui.click()
+
+        pyautogui.moveTo(2960,  680 , duration=2) # continuer sans modif les sujets 
+        pyautogui.click()
+
+        pyautogui.moveTo(3167,  922 , duration=2)  # Terminer
+        pyautogui.click()
+    except KeyboardInterrupt:
+        print("Le script a été interrompu.")
+        sys.exit()
+import keyboard
+
+stop_script = False
+
+for q in questions:
+    if stop_script:
+        break
+    try:
+        # rest of the code
+
+        if keyboard.is_pressed('c'):  # Check if 'c' key is pressed
+            stop_script = True
+    except KeyboardInterrupt:
+        print("Le script a été interrompu.")
+        sys.exit()
+import keyboard
+
+stop_script = False
+
+for q in questions:
+    if stop_script:
+        break
+    try:
+        # rest of the code
+
+        if keyboard.is_pressed('c'):  # Check if 'c' key is pressed
+            stop_script = True
+    except KeyboardInterrupt:
+        print("Le script a été interrompu.")
+        sys.exit()
+import pyautogui
+import time
+import sys
+import pyperclip
+text = """Comment les smartphones peuvent-ils aider à prévenir la criminalité et à résoudre des crimes ?
+Comment les smartphones peuvent-ils affecter les comportements d'achat des consommateurs ?
+Comment les smartphones peuvent-ils influencer les relations de travail ?
+Comment les smartphones peuvent-ils améliorer la sécurité routière ?
+Comment les smartphones peuvent-ils aider les personnes dans les situations d'urgence ?
+Comment les smartphones peuvent-ils influencer les relations amoureuses ?"""
+
+questions = text.split('\n')
+for q in questions :
+    try:
+        screen_width, screen_height = pyautogui.size()  
+
+
+        pyautogui.moveTo(3324,  210 , duration=2)   #AJoute    
+        pyautogui.click()
+        
+        pyautogui.moveTo(2533,  594 , duration=2)#Zoone de texte
+        pyautogui.click()
+        pyperclip.copy(q)
+        pyautogui.hotkey('ctrl', 'v') 
+        
+
+
+        
+        pyautogui.moveTo(3135,  829 , duration=2) #ajoute bleu
+        pyautogui.click()
+        
+        pyautogui.moveTo(3126, 980 , duration=5) # Sujet terminer
+        pyautogui.click()
+
+
+        pyautogui.moveTo(2960,  680 , duration=2) # continuer sans modif les sujets 
+        pyautogui.click()
+
+        pyautogui.moveTo(3167,  922 , duration=2)  # Terminer
+        pyautogui.click()
+
+    except KeyboardInterrupt:
+        print("Le script a été interrompu.")
+        sys.exit()

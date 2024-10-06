@@ -1,0 +1,250 @@
+NEW QUESTION 1
+To what should an application connect to retrieve security tokens?
+A. an Azure Storage account
+B. Azure Active Directory (Azure AD)
+C. a certificate store
+D. an Azure key vault
+Answer: B
+Explanation: Section: Understand Security, Privacy, Compliance and Trust
+NEW QUESTION 2
+This question requires that you evaluate the underlined text to determine if it is correct.
+You have several virtual machines in an Azure subscription. You create a new subscription. The virtual machines cannot be moved to the new subscription.
+Instructions: Review the underlined text. If it makes the statement correct, select “No change is needed”. If the statement is incorrect, select the answer choice
+that makes the statement correct.
+A. No change is needed
+B. The virtual machines can be moved to the new subscription
+C. The virtual machines can be moved to the new subscription only if they are all in the same resource group
+D. The virtual machines can be moved to the new subscription only if they run Windows Server 2016.
+Answer: B
+Explanation: Section: Understand Azure Pricing and Support
+NEW QUESTION 3
+Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the
+stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
+After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
+Your company plans to purchase Azure.
+The company’s support policy states that the Azure environment must provide an option to access support engineers by phone or email.
+You need to recommend which support plan meets the support policy requirement.
+Solution: Recommend a Basic support plan. Does this meet the goal?
+A. Yes
+B. No
+Answer: B
+Explanation: Section: Understand Azure Pricing and Support
+References:
+https://azure.microsoft.com/en-gb/support/plans/
+NEW QUESTION 4
+Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the
+stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
+After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
+Your Azure environment contains multiple Azure virtual machines.
+You need to ensure that a virtual machine named VM1 is accessible from the Internet over HTTP. Solution: You modify a DDoS protection plan.
+Does this meet the goal?
+A. Yes
+B. No
+Answer: B
+Explanation: Section: Understand Security, Privacy, Compliance and Trust
+NEW QUESTION 5
+Your company plans to deploy an Artificial Intelligence (AI) solution in Azure.
+What should the company use to build, test, and deploy predictive analytics solutions?
+A. Azure Logic Apps
+B. Azure Machine Learning Studio
+C. Azure Batch
+D. Azure Cosmos DB
+Answer: B
+Explanation: Section: Understand Core Azure Services
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com
+Welcome to download the Newest 2passeasy AZ-900 dumps
+https://www.2passeasy.com/dumps/AZ-900/ (132 New Questions)
+NEW QUESTION 6
+You plan to map a network drive from several computers that run Windows 10 to Azure Storage. You need to create a storage solution in Azure for the planned
+mapped drive.
+What should you create?
+A. an Azure SQL database
+B. a virtual machine data disk
+C. a Files service in a storage account
+D. a Blobs service in a storage account
+Answer: C
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 7
+What is required to use Azure Cost Management?
+A. a Dev/Test subscription
+B. Software Assurance
+C. an Enterprise Agreement (EA)
+D. a pay-as-you-go subscription
+Answer: C
+Explanation: Section: Understand Azure Pricing and Support
+References:
+https://docs.microsoft.com/en-gb/azure/cost-management/overview-cost-mgt
+NEW QUESTION 8
+Match the Azure service to the correct definition.
+Instructions: To answer, drag the appropriate Azure service from the column on the left to its description on the right. Each service may be used once, more than
+once, or not at all.
+NOTE: Each correct match is worth one point.
+Answer:
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 9
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
+NOTE: Each correct selection is worth one point.
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com
+Welcome to download the Newest 2passeasy AZ-900 dumps
+https://www.2passeasy.com/dumps/AZ-900/ (132 New Questions)
+Answer:
+Explanation: Section: Understand Azure Pricing and Support
+NEW QUESTION 10
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
+NOTE: Each correct selection is worth one point.
+Answer:
+Explanation: Section: Understand Azure Pricing and Support
+NEW QUESTION 10
+This question requires that you evaluate the underlined text to determine if it is correct.
+Resource groups provide organizations with the ability to manage the compliance of Azure resources across multiple subscriptions.
+Instructions: Review the underlined text. If it makes the statement correct, select “No change is needed”. If the statement is incorrect, select the answer choice
+that makes the statement correct.
+A. No change is needed
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com
+Welcome to download the Newest 2passeasy AZ-900 dumps
+https://www.2passeasy.com/dumps/AZ-900/ (132 New Questions)
+B. Management groups
+C. Azure policies
+D. Azure App Service plans
+Answer: C
+Explanation: Section: Understand Security, Privacy, Compliance and Trust
+NEW QUESTION 15
+Your company has several business units.
+Each business unit requires 20 different Azure resources for daily operation. All the business units require the same type of Azure resources.
+You need to recommend a solution to automate the creation of the Azure resources. What should you include in the recommendations?
+A. Azure Resource Manager templates
+B. virtual machine scale sets
+C. the Azure API Management service
+D. management groups
+Answer: A
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 18
+Match the term to the correct definition.
+Instructions: To answer, drag the appropriate term from the column on the left to its description on the right. Each term may be used once, more than once, or not
+at all.
+NOTE: Each correct match is worth one point.
+Answer:
+Explanation: Section: Understand Security, Privacy, Compliance and Trust
+NEW QUESTION 23
+This question requires that you evaluate the underlined text to determine if it is correct.
+Azure policies provide a common platform for deploying objects to a cloud infrastructure and for implementing consistency across the Azure environment.
+Instructions: Review the underlined text. If it makes the statement correct, select “No change is needed”. If the statement is incorrect, select the answer choice
+that makes the statement correct.
+A. No change is needed
+B. Resource groups provide
+C. Azure Resource Manager provides
+D. Management groups provide
+Answer: C
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 26
+Which Azure service should you use to correlate events from multiple resources into a centralized repository?
+A. Azure Event Hubs
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com
+Welcome to download the Newest 2passeasy AZ-900 dumps
+https://www.2passeasy.com/dumps/AZ-900/ (132 New Questions)
+B. Azure Analysis Services
+C. Azure Monitor
+D. Azure Log Analytics
+Answer: D
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 29
+Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the
+stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
+After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
+An Azure administrator plans to run a PowerShell script that creates Azure resources. You need to recommend which computer configuration to use to run the
+script.
+Solution: Run the script from a computer that runs Chrome OS and uses Azure Cloud Shell. Does this meet the goal?
+A. Yes
+B. No
+Answer: B
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 31
+This question requires that you evaluate the underlined text to determine if it is correct.
+When planning to migrate a public website to Azure, you must plan to pay monthly usage costs.
+Instructions: Review the underlined text. If it makes the statement correct, select “No change is needed”. If the statement is incorrect, select the answer choice
+that makes the statement correct.
+A. No change is needed
+B. Deploy a VPN
+C. pay to transfer all the website data to Azure
+D. reduce the number of connections to the website
+Answer: A
+NEW QUESTION 34
+This question requires that you evaluate the underlined text to determine if it is correct.
+An organization that hosts its infrastructure in a private cloud can decommission its data center.
+Instructions: Review the underlined text. If it makes the statement correct, select “No change is needed”. If the statement is incorrect, select the answer choice
+that makes the statement correct.
+A. No change is needed.
+B. in a hybrid cloud
+C. in the public cloud
+D. on a Hyper-V host
+Answer: C
+NEW QUESTION 37
+You have an on-premises network that contains several servers. You plan to migrate all the servers to Azure.
+You need to recommend a solution to ensure that some of the servers are available if a single Azure data center goes offline for an extended period.
+What should you include in the recommendation?
+A. fault tolerance
+B. elasticity
+C. scalability
+D. low latency
+Answer: A
+NEW QUESTION 40
+Which two types of customers are eligible to use Azure Government to develop a cloud solution? Each correct answer presents a complete solution.
+NOTE: Each correct selection is worth one point.
+A. a Canadian government contractor
+B. a European government contractor
+C. a United States government entity
+D. a United States government contractor
+E. a European government entity
+Answer: CD
+Explanation: Section: Understand Security, Privacy, Compliance and Trust
+References:
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com
+Welcome to download the Newest 2passeasy AZ-900 dumps
+https://www.2passeasy.com/dumps/AZ-900/ (132 New Questions)
+https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-government/2-what-is-azure-government
+NEW QUESTION 41
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
+NOTE: Each correct selection is worth one point.
+Answer:
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 46
+For each of the following statements, select Yes if the statement is true. Otherwise, select No.
+NOTE: Each correct selection is worth one point.
+Answer:
+Explanation: Section: Understand Azure Pricing and Support
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com
+Welcome to download the Newest 2passeasy AZ-900 dumps
+https://www.2passeasy.com/dumps/AZ-900/ (132 New Questions)
+NEW QUESTION 48
+You need to view a list of planned maintenance events that can affect the availability of an Azure subscription. Which blade should you use from the Azure portal?
+To answer, select the appropriate blade in the answer area.
+Answer:
+Explanation: Section: Understand Core Azure Services
+NEW QUESTION 51
+Your network contains an Active Directory forest. The forest contains 5,000 user accounts.
+Your company plans to migrate all network resources to Azure and to decommission the on-premises data center.
+You need to recommend a solution to minimize the impact on users after the planned migration. What should you recommend?
+A. Implement Azure Multi-Factor Authentication (MFA)
+B. Sync all the Active Directory user accounts to Azure Active Directory (Azure AD)
+C. Instruct all users to change their password
+D. Create a guest user account in Azure Active Directory (Azure AD) for each user
+Answer: B
+Explanation: Section: Understand Security, Privacy, Compliance and Trust
+NEW QUESTION 52
+......
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com
+Welcome to download the Newest 2passeasy AZ-900 dumps
+https://www.2passeasy.com/dumps/AZ-900/ (132 New Questions)
+THANKS FOR TRYING THE DEMO OF OUR PRODUCT
+Visit Our Site to Purchase the Full Set of Actual AZ-900 Exam Questions With Answers.
+We Also Provide Practice Exam Software That Simulates Real Exam Environment And Has Many Self-Assessment Features. Order the
+AZ-900 Product From:
+https://www.2passeasy.com/dumps/AZ-900/
+Money Back Guarantee
+AZ-900 Practice Exam Features:
+* AZ-900 Questions and Answers Updated Frequently
+* AZ-900 Practice Questions Verified by Expert Senior Certified Staff
+* AZ-900 Most Realistic Questions that Guarantee you a Pass on Your FirstTry
+* AZ-900 Practice Test Questions in Multiple Choice Formats and Updatesfor 1 Year
+Powered by TCPDF (www.tcpdf.org)
+Passing Certification Exams Made Easy visit - https://www.2PassEasy.com

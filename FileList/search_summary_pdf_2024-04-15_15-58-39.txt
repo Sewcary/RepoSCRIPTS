@@ -1,0 +1,4 @@
+Nombre de fichiers PDF trouvés : 3
+Taille totale des fichiers : 9651682 octets
+Durée de la recherche : 0.33 secondes
+----------------------------------------

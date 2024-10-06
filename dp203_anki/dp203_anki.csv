@@ -1,0 +1,1541 @@
+"Front","Back"
+"You use Azure Stream Analytics to receive data from Azure Event Hubs and to output the data to an Azure Blob Storage account. You need to output the count of records received from the last five minutes every minute. Which windowing function should you use?
+
+Options:
+a) Session
+b) Tumbling
+c) Sliding
+d) Hopping","Correct Answer: d) Hopping
+
+Explication : La fenêtre de saut (Hopping window) est idéale dans ce scénario car elle permet aux fenêtres de se chevaucher. Cela signifie qu'à chaque minute, une fenêtre des 5 dernières minutes est évaluée, fournissant des résultats chaque minute. Ce comportement de chevauchement permet une agrégation continue et fréquente des données.
+
+Définitions des termes :
+ - **Fenêtre de saut (Hopping window)** : Une fonction de fenêtre où les fenêtres peuvent se chevaucher en fonction d'une taille de saut définie. Ici, chaque minute, les dernières 5 minutes sont évaluées, garantissant des résultats fréquents et continus.
+ - **Agrégation des données** : Processus consistant à combiner plusieurs points de données pour produire un total ou un résumé. Dans ce cas, cela permet de compter le nombre d'enregistrements dans chaque fenêtre temporelle.
+
+Explication des réponses incorrectes :
+ - **a) Session** : La fenêtre de session est utilisée pour regrouper les événements séparés par des périodes d'inactivité. Ce n'est pas applicable ici, car nous avons besoin d'une évaluation continue.
+ - **b) Tumbling** : Les fenêtres Tumbling ne se chevauchent pas. Une fois qu'une fenêtre se termine, la suivante commence. Cela ne permet pas de fournir des résultats chaque minute basés sur les 5 dernières minutes.
+ - **c) Sliding** : Les fenêtres Sliding évaluent continuellement les événements, mais elles ne sont pas l'option la plus efficace ici, car les fenêtres de saut offrent des chevauchements avec des sorties périodiques."
+"You are designing the folder structure for an Azure Data Lake Storage Gen2 container. Users will query data by using a variety of services including Azure Databricks and Azure Synapse Analytics serverless SQL pools. The data will be secured by subject area. Most queries will include data from the current year or current month. Which folder structure should you recommend to support fast queries and simplified folder security?
+
+Options:
+a) /{SubjectArea}/{DataSource}/{DD}/{MM}/{YYYY}/{FileData}_{YYYY}_{MM}_{DD}.csv
+b) /{DD}/{MM}/{YYYY}/{SubjectArea}/{DataSource}/{FileData}_{YYYY}_{MM}_{DD}.csv
+c) /{YYYY}/{MM}/{DD}/{SubjectArea}/{DataSource}/{FileData}_{YYYY}_{MM}_{DD}.csv
+d) /{SubjectArea}/{DataSource}/{YYYY}/{MM}/{DD}/{FileData}_{YYYY}_{MM}_{DD}.csv","Correct Answer: d) /{SubjectArea}/{DataSource}/{YYYY}/{MM}/{DD}/{FileData}_{YYYY}_{MM}_{DD}.csv
+
+Explication : Cette structure est la plus efficace car elle permet de suivre une hiérarchie logique basée sur l'organisation des données par sujet (subject area) et source de données. Cela simplifie les requêtes fréquentes sur des périodes basées sur l'année ou le mois en utilisant un chemin structuré, tout en optimisant la sécurité des dossiers. Les utilisateurs peuvent facilement accéder aux données pertinentes et appliquer des politiques de sécurité plus granulaires par sujet et source.
+
+Définitions des termes :
+ - **Subject Area** : Le domaine ou sujet principal auquel les données se rapportent, ce qui facilite l'organisation et la sécurité des données.
+ - **Data Source** : La source d'où proviennent les données, ce qui aide à organiser les fichiers selon leur origine.
+ - **YYYY/MM/DD** : Format standard pour organiser les fichiers par année, mois et jour, ce qui facilite les requêtes temporelles.
+
+Explication des réponses incorrectes :
+ - **a) /{SubjectArea}/{DataSource}/{DD}/{MM}/{YYYY}/...** : L'organisation commence par le jour, ce qui rend les requêtes temporelles plus lentes et moins optimisées.
+ - **b) /{DD}/{MM}/{YYYY}/{SubjectArea}/{DataSource}/...** : Le jour est en premier, ce qui est inefficace pour les requêtes basées sur l'année ou le mois.
+ - **c) /{YYYY}/{MM}/{DD}/{SubjectArea}/{DataSource}/...** : Bien que cette structure soit meilleure pour les requêtes temporelles, elle n'est pas optimale pour la gestion de la sécurité par sujet."
+"You need to ensure that the Twitter feed data can be analyzed in the dedicated SQL pool. The solution must meet the customer sentiment analytic requirements. Which three Transact-SQL DDL commands should you run in sequence?
+
+Commands:
+CREATE EXTERNAL DATA SOURCE
+CREATE EXTERNAL FILE FORMAT
+CREATE EXTERNAL TABLE
+CREATE EXTERNAL TABLE AS SELECT
+CREATE EXTERNAL SCOPED CREDENTIALS","Correct Answer:
+1) CREATE EXTERNAL DATA SOURCE
+2) CREATE EXTERNAL FILE FORMAT
+3) CREATE EXTERNAL TABLE
+
+Explication :
+1. **CREATE EXTERNAL DATA SOURCE** : Vous devez d'abord définir la source de données externe, qui est le point d'entrée pour accéder aux données non structurées comme le flux Twitter.
+2. **CREATE EXTERNAL FILE FORMAT** : Ensuite, vous définissez le format des fichiers que vous allez lire, par exemple, CSV, Parquet, ou JSON, en fonction du format des données Twitter.
+3. **CREATE EXTERNAL TABLE** : Enfin, vous créez une table externe qui mappe les fichiers de données à une structure tabulaire dans le pool SQL, ce qui permet de les analyser.
+
+Les autres options comme 'CREATE EXTERNAL TABLE AS SELECT' et 'CREATE EXTERNAL SCOPED CREDENTIALS' ne sont pas pertinentes dans cet ordre car elles ne correspondent pas à la séquence logique d'abord établir la source, le format, puis la table."
+"You have created an external table named ExtTable in Azure Data Explorer. Now, a database user needs to run a KQL (Kusto Query Language) query on this external table. Which of the following function should he use to refer to this table?
+
+Options:
+a) external_table()
+b) access_table()
+c) ext_table()
+d) None of the above","Correct Answer: a) external_table()
+
+Explication : La fonction **external_table()** est utilisée dans Kusto Query Language (KQL) pour interroger des tables externes. Cela permet d’accéder à des données qui ne sont pas directement dans Azure Data Explorer mais qui sont connectées via des tables externes. Les autres options ne sont pas des fonctions valides dans le contexte KQL.
+
+Définitions :
+ - **external_table()** : Fonction KQL utilisée pour référencer une table externe et exécuter des requêtes dessus.
+ - **KQL (Kusto Query Language)** : Un langage de requête conçu pour analyser des données volumineuses dans Azure Data Explorer.
+Les autres options, comme **access_table()** et **ext_table()**, ne sont pas des fonctions valides dans ce contexte."
+"You have created an external table named ExtTable in Azure Data Explorer. Now, a database user needs to run a KQL (Kusto Query Language) query on this external table. Which of the following functions should he use to refer to this table?
+
+Options:
+a) external_table()
+b) access_table()
+c) ext_table()
+d) None of the above","Correct Answer: a) external_table()
+
+Explication : La fonction **external_table()** est utilisée dans le Kusto Query Language (KQL) pour interroger des tables externes dans Azure Data Explorer. Elle permet d'accéder à des données qui se trouvent dans des sources de données externes, telles que des fichiers ou des tables de bases de données externes, mais qui sont accessibles via une table externe dans Azure Data Explorer.
+
+Les autres options ne sont pas valides pour ce contexte :
+- **access_table()** et **ext_table()** ne sont pas des fonctions reconnues en KQL.
+- **None of the above** est incorrect car la fonction appropriée est bien **external_table()**."
+"#techblackBoard | Question 6
+
+You have an Azure Synapse workspace named MyWorkspace that contains an Apache Spark database named mytestdb. You run the following command in an Azure Synapse Analytics Spark pool in MyWorkspace:
+
+CREATE TABLE mytestdb.myParquetTable(
+    EmployeeID int,
+    EmployeeName string,
+    EmployeeStartDate date
+);
+
+USING Parquet - You then use Spark to insert a row into mytestdb.myParquetTable. The row contains the following data:
+EmployeeName: Peter | EmployeeID: 1001 | EmployeeStartDate: 28-July-2022
+
+One minute later, you execute the following query from a serverless SQL pool in MyWorkspace:
+
+SELECT EmployeeID
+FROM mytestdb.dbo.myParquetTable
+WHERE name = 'Peter';
+
+What will be returned by the query?
+
+Options:
+a) 24
+b) an error
+c) a null value","Correct Answer: c) a null value
+
+Explication : La colonne utilisée dans la clause WHERE est incorrecte. La table **myParquetTable** contient la colonne **EmployeeName** et non pas **name**. Par conséquent, la requête ne trouve aucune correspondance et retourne une valeur nulle (**null value**).
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 7
+
+In Structured data, you define data type at query time.
+
+Options:
+a) True
+b) False","Correct Answer: b) False
+
+Explication : Dans les données structurées, les types de données sont définis au moment de la création des tables et des colonnes, pas au moment de la requête. Cela permet d'assurer l'intégrité des données et de garantir que les informations insérées ou interrogées respectent des contraintes de type strictes.
+
+Définitions des termes :
+ - **Données structurées** : Les données organisées dans un format fixe comme les tableaux de bases de données, où chaque colonne a un type de données défini à l'avance (par exemple, entier, chaîne de caractères, date).
+ - **Type de données** : Un attribut qui spécifie le type d'informations qu'une colonne ou une variable peut contenir (par exemple, un nombre, du texte, une date, etc.).
+ - **Intégrité des données** : La précision et la cohérence des données sur l'ensemble de leur cycle de vie, assurée par des règles comme les types de données pour éviter les erreurs lors de la manipulation des données.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 8
+
+In Unstructured data, you define data type at query time.
+
+Options:
+a) True
+b) False","Correct Answer: a) True
+
+Explication : Dans les données non structurées, les types de données sont souvent définis au moment de l'interrogation (query time), et non à l'avance comme pour les données structurées. Cela signifie que les données peuvent être stockées dans leur format natif sans transformation préalable, et la plateforme de données gère l'application des types lors des requêtes.
+
+Définitions des termes :
+ - **Données non structurées** : Les données qui ne suivent pas un format ou une structure fixe, comme les fichiers textes, les images, les vidéos, ou les données de capteurs. Elles sont généralement stockées dans leur format brut.
+ - **Type de données** : Spécifie le type d'information qu'une donnée représente (texte, nombre, etc.). Dans les données non structurées, ce type est appliqué lors de la requête.
+ - **Schema** : La définition de la structure des données, qui dans le cas des données non structurées, est souvent appliquée au moment de la requête.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 9
+
+When you create a temporal table in Azure SQL Database, it automatically creates a history table in the same database for capturing the historical records. Which of the following statements are true about the temporal table and history table? [Select all options that are applicable]
+
+Options:
+a) A temporal table must have 1 primary key.
+b) To create a temporal table, System Versioning needs to be set to On.
+c) To create a temporal table, System Versioning needs to be set to Off.
+d) It is mandatory to mention the name of the history table when you create the temporal table.
+e) If you don't specify the name for the history table, the default naming convention is used for the history table.
+f) You can specify the table constraints for the history table.","Correct Answers: b), e)
+
+Explication :
+1. **System Versioning must be set to On** : Pour créer une table temporelle, il est nécessaire d'activer le versioning système. Cela permet à la base de données de suivre automatiquement les modifications et de les enregistrer dans une table d'historique.
+2. **History table name** : Si vous ne spécifiez pas de nom pour la table d'historique, une convention de nommage par défaut est appliquée. Il n'est donc pas obligatoire de nommer la table manuellement.
+
+Définitions des termes :
+ - **Temporal table** : Une table qui enregistre les modifications de données dans une table associée, appelée table d'historique.
+ - **System Versioning** : Un mécanisme qui capture automatiquement les changements dans une table temporelle et les stocke dans la table d'historique associée.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 11
+
+You need to output files from Azure Data Factory. Which file format should you use for each type of output?
+
+To answer, select the appropriate options in the answer area.
+
+Options:
+Columnar format:
+a) Avro
+b) GZIP
+c) Parquet
+d) TXT
+
+JSON with a timestamp:
+a) Avro
+b) GZIP
+c) Parquet
+d) TXT","Correct Answers:
+ - **Columnar format**: c) Parquet
+ - **JSON with a timestamp**: a) Avro
+
+Explication :
+1. **Parquet** : Format optimisé pour le stockage de données en colonnes, ce qui le rend particulièrement adapté pour les charges de travail analytiques lourdes qui impliquent la lecture de grandes quantités de données.
+2. **Avro** : Format de sérialisation optimisé pour les fichiers JSON avec des métadonnées comme les horodatages. Il est largement utilisé dans les flux de données où une structure hiérarchique comme JSON est nécessaire.
+
+Définitions des termes :
+ - **Columnar format** : Un format de stockage de données en colonnes, optimisé pour les requêtes analytiques qui lisent les données colonne par colonne au lieu de ligne par ligne.
+ - **JSON (JavaScript Object Notation)** : Un format léger d'échange de données souvent utilisé pour représenter des structures de données avec des paires clé-valeur.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 10
+
+To create Data Factory instances, the user account that you use to sign into Azure must be a member of: [Select all options that are applicable]
+
+Options:
+a) Contributor
+b) Owner role
+c) Administrator of the Azure subscription
+d) Write","Correct Answers: a) Contributor, b) Owner role, c) Administrator of the Azure subscription
+
+Explication :
+1. **Contributor** : Ce rôle permet aux utilisateurs de créer et gérer toutes sortes de ressources dans Azure, y compris les instances Data Factory, mais sans pouvoir modifier les accès.
+2. **Owner role** : Le rôle d'Owner permet de gérer toutes les ressources, y compris la gestion des accès et autorisations, ce qui est crucial pour créer des ressources comme Data Factory.
+3. **Administrator of the Azure subscription** : L'administrateur de l'abonnement Azure dispose de toutes les autorisations nécessaires pour créer et gérer des instances Data Factory.
+
+Définitions des termes :
+ - **Contributor** : Un rôle Azure RBAC (Role-Based Access Control) qui permet de créer et gérer des ressources sans modifier les accès.
+ - **Owner role** : Un rôle Azure qui permet à l'utilisateur de contrôler totalement une ressource, y compris de gérer les permissions d'accès.
+ - **Azure subscription administrator** : L'administrateur de l'abonnement a le contrôle total sur toutes les ressources et la facturation dans l'abonnement Azure.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 12
+
+Working as a data engineer for a car sales company you need to design an application that would accept market information as an input. Using the machine learning classification model, the application will classify the input data into two categories:
+a) Car models that sell more with buyers between 18-40 years and
+b) Car models that sell more with people above 40
+
+What would you recommend to train the model?
+
+Options:
+a) Power BI Models
+b) Text Analytics API
+c) Computer Vision API
+d) Apache Spark MLlib","Correct Answer: d) Apache Spark MLlib
+
+Explication : **Apache Spark MLlib** est une bibliothèque de machine learning distribuée qui permet de traiter de grandes quantités de données et d'entraîner des modèles d'apprentissage automatique à grande échelle. Dans ce cas, elle est idéale pour entraîner un modèle de classification qui segmente les acheteurs en fonction de leur âge.
+
+Les autres options ne sont pas adaptées :
+ - **Power BI Models** : Power BI est principalement une plateforme de visualisation et d'analyse de données, non conçue pour entraîner des modèles de machine learning.
+ - **Text Analytics API** : Cette API est destinée à l'analyse de texte (sentiments, langage, etc.), pas à l'entraînement de modèles de classification.
+ - **Computer Vision API** : API utilisée pour analyser les images, pas pour les modèles de classification basés sur des données tabulaires comme ici.
+
+Définitions des termes :
+ - **Apache Spark MLlib** : Une bibliothèque de machine learning qui fait partie de l'écosystème Apache Spark, capable d'entraîner des modèles sur des clusters de calcul distribués.
+ - **Classification** : Une technique de machine learning qui consiste à attribuer une étiquette ou une catégorie à des données en fonction de certaines caractéristiques.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 13
+
+You are designing an Azure Stream Analytics solution that will analyze Twitter data. You need to count the tweets in each 10-second window. The solution must ensure that each tweet is counted only once.
+
+Solution: You use a session window that uses a timeout size of 10 seconds.
+Does this meet the goal?
+
+Options:
+a) Yes
+b) No","Correct Answer: b) No
+
+Explication : Une **session window** n'est pas appropriée dans ce cas, car elle est utilisée pour regrouper les événements en fonction de périodes d'inactivité, pas pour des fenêtres fixes comme des intervalles de 10 secondes. Pour compter les tweets dans une fenêtre de 10 secondes, une **tumbling window** ou une **sliding window** serait plus adaptée. Une fenêtre de session ne garantit pas que chaque tweet soit compté exactement une fois dans un intervalle fixe.
+
+Définitions des termes :
+ - **Session window** : Une fenêtre utilisée pour regrouper des événements lorsqu'ils surviennent dans des intervalles de temps proches, avec un délai d'expiration spécifié pour déterminer la fin de la session.
+ - **Tumbling window** : Une fenêtre de durée fixe, non chevauchante, idéale pour regrouper des événements dans des intervalles de temps définis (par exemple, toutes les 10 secondes).
+ - **Sliding window** : Une fenêtre qui glisse sur le temps avec des chevauchements, utilisée pour suivre les événements en temps réel tout en regroupant les événements sur une période définie.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 13
+
+You are designing an Azure Stream Analytics solution that will analyze Twitter data. You need to count the tweets in each 10-second window. The solution must ensure that each tweet is counted only once.
+
+Solution: You use a session window that uses a timeout size of 10 seconds.
+Does this meet the goal?
+
+Options:
+a) Yes
+b) No","Correct Answer: b) No
+
+Explication : Une **session window** n'est pas appropriée dans ce cas, car elle est utilisée pour regrouper les événements en fonction de périodes d'inactivité, pas pour des fenêtres fixes comme des intervalles de 10 secondes. Pour compter les tweets dans une fenêtre de 10 secondes, une **tumbling window** ou une **sliding window** serait plus adaptée. Une fenêtre de session ne garantit pas que chaque tweet soit compté exactement une fois dans un intervalle fixe.
+
+Définitions des termes :
+ - **Session window** : Une fenêtre utilisée pour regrouper des événements lorsqu'ils surviennent dans des intervalles de temps proches, avec un délai d'expiration spécifié pour déterminer la fin de la session.
+ - **Tumbling window** : Une fenêtre de durée fixe, non chevauchante, idéale pour regrouper des événements dans des intervalles de temps définis (par exemple, toutes les 10 secondes).
+ - **Sliding window** : Une fenêtre qui glisse sur le temps avec des chevauchements, utilisée pour suivre les événements en temps réel tout en regroupant les événements sur une période définie.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 14
+
+You are designing an Azure Stream Analytics solution that will analyze Twitter data. You need to count the tweets in each 10-second window. The solution must ensure that each tweet is counted only once.
+
+Solution: You use a sliding window, and you set the window size to 10 seconds.
+Does this meet the goal?
+
+Options:
+a) Yes
+b) No","Correct Answer: b) No
+
+Explication : Une **sliding window** n'est pas idéale pour cette tâche car elle chevauche les fenêtres dans le temps. Cela signifie que des tweets peuvent être comptés plusieurs fois si les fenêtres se chevauchent. Pour une tâche qui nécessite un comptage unique de chaque tweet dans un intervalle de 10 secondes, une **tumbling window** serait plus appropriée.
+
+Définitions des termes :
+ - **Sliding window** : Une fenêtre qui se déplace sur le temps, créant des chevauchements, ce qui peut entraîner des doublons lors du comptage des événements dans les intervalles.
+ - **Tumbling window** : Une fenêtre de durée fixe, non chevauchante, idéale pour des événements qui doivent être comptés une seule fois dans des intervalles définis.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 16
+
+What are the key components of Azure Data Factory? [Select all options that are applicable]
+
+Options:
+a) Database
+b) Connection String
+c) Pipelines
+d) Activities
+e) Datasets
+f) Linked services
+g) Data Flows
+h) Integration Runtimes","Correct Answers: c) Pipelines, d) Activities, e) Datasets, f) Linked services, g) Data Flows, h) Integration Runtimes
+
+Explication : Les composants clés d'Azure Data Factory sont ceux qui permettent l'orchestration et l'intégration des services et des données. Voici les composants principaux :
+1. **Pipelines** : Les pipelines regroupent plusieurs activités afin d'accomplir une tâche. Ils orchestrent le flux de données.
+2. **Activities** : Une activité représente une étape de traitement spécifique dans un pipeline.
+3. **Datasets** : Ils définissent les données à utiliser dans une activité de pipeline.
+4. **Linked services** : Les services liés définissent les connexions aux sources de données ou aux destinations.
+5. **Data Flows** : Les flux de données sont des transformations de données qui s'exécutent au sein d'Azure Data Factory.
+6. **Integration Runtimes** : Les runtimes d'intégration assurent le déplacement et la transformation des données dans Azure Data Factory.
+
+Les autres options, comme **Database** et **Connection String**, ne sont pas des composants d'Azure Data Factory mais font partie des systèmes de bases de données et des chaînes de connexion respectivement.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 16
+
+What are the key components of Azure Data Factory? [Select all options that are applicable]
+
+Options:
+a) Database
+b) Connection String
+c) Pipelines
+d) Activities
+e) Datasets
+f) Linked services
+g) Data Flows
+h) Integration Runtimes","Correct Answers: c) Pipelines, d) Activities, e) Datasets, f) Linked services, g) Data Flows, h) Integration Runtimes
+
+Explication : Les composants clés d'Azure Data Factory sont ceux qui permettent l'orchestration et l'intégration des services et des données. Voici les composants principaux :
+1. **Pipelines** : Les pipelines regroupent plusieurs activités afin d'accomplir une tâche. Ils orchestrent le flux de données.
+2. **Activities** : Une activité représente une étape de traitement spécifique dans un pipeline.
+3. **Datasets** : Ils définissent les données à utiliser dans une activité de pipeline.
+4. **Linked services** : Les services liés définissent les connexions aux sources de données ou aux destinations.
+5. **Data Flows** : Les flux de données sont des transformations de données qui s'exécutent au sein d'Azure Data Factory.
+6. **Integration Runtimes** : Les runtimes d'intégration assurent le déplacement et la transformation des données dans Azure Data Factory.
+
+Les autres options, comme **Database** et **Connection String**, ne sont pas des composants d'Azure Data Factory mais font partie des systèmes de bases de données et des chaînes de connexion respectivement.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 15
+
+You are designing an Azure Stream Analytics solution that will analyze Twitter data. You need to count the tweets in each 10-second window. The solution must ensure that each tweet is counted only once.
+
+Solution: You use a tumbling window, and you set the window size to 10 seconds.
+Does this meet the goal?
+
+Options:
+a) Yes
+b) No","Correct Answer: a) Yes
+
+Explication : Une **tumbling window** est idéale pour cette tâche car elle permet de créer des fenêtres non chevauchantes de taille fixe, ici 10 secondes. Cela garantit que chaque tweet est compté une seule fois dans chaque intervalle de 10 secondes.
+
+Définitions des termes :
+ - **Tumbling window** : Une fenêtre de durée fixe, non chevauchante, utilisée pour regrouper des événements en intervalles de temps fixes.
+ - **Azure Stream Analytics** : Un service cloud qui permet de traiter les flux de données en temps réel provenant de sources comme Twitter.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 17
+
+Which of the following are valid trigger types of Azure Data Factory? [Select all options that are applicable]
+
+Options:
+a) Monthly Trigger
+b) Schedule Trigger
+c) Overlap Trigger
+d) Tumbling Window Trigger
+e) Event-based Trigger","Correct Answers: b) Schedule Trigger, d) Tumbling Window Trigger, e) Event-based Trigger
+
+Explication : Les types de déclencheurs valides dans Azure Data Factory sont :
+1. **Schedule Trigger** : Utilisé pour planifier l'exécution des pipelines à des intervalles définis (quotidien, hebdomadaire, etc.).
+2. **Tumbling Window Trigger** : Déclencheur basé sur des fenêtres de temps fixes, souvent utilisé pour traiter des données en blocs temporels non chevauchants.
+3. **Event-based Trigger** : Déclencheur qui réagit à des événements tels que l'arrivée de fichiers dans un stockage.
+
+Les autres options comme **Monthly Trigger** et **Overlap Trigger** ne sont pas des déclencheurs valides dans Azure Data Factory.
+
+Définitions des termes :
+ - **Schedule Trigger** : Un déclencheur qui exécute un pipeline à des moments précis, planifiés à l'avance.
+ - **Tumbling Window Trigger** : Un déclencheur qui fonctionne avec des intervalles de temps fixes et non chevauchants pour le traitement périodique des données.
+ - **Event-based Trigger** : Un déclencheur qui exécute un pipeline en réponse à un événement, comme l'arrivée de nouveaux fichiers.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 20
+
+Duplicating customer content for redundancy and meeting service-level agreements (SLAs) is Azure High availability.
+
+Options:
+a) Yes
+b) No","Correct Answer: a) Yes
+
+Explication : La **haute disponibilité** (High availability) dans Azure consiste à dupliquer les données et les services sur plusieurs zones ou régions afin d'assurer la redondance et de respecter les niveaux de service (SLA). Cela garantit que les services restent disponibles même en cas de panne ou d'interruption d'une région ou d'un centre de données.
+
+Définitions des termes :
+ - **High Availability (Haute disponibilité)** : Une architecture conçue pour garantir que les services sont toujours accessibles et qu'ils peuvent continuer à fonctionner même en cas de panne.
+ - **SLA (Service-Level Agreement)** : Un engagement de la part du fournisseur de services pour garantir un certain niveau de disponibilité ou de performance des services.
+
+Tags: #techblackBoard"
+"#techblackBoard | Question 19
+
+Duplicating customer content for redundancy and meeting service-level agreements (SLAs) is Azure Maintainability.
+
+Options:
+a) Yes
+b) No","Correct Answer: b) No
+
+Explication : La duplication des données pour assurer la redondance et respecter les SLA fait partie de la **haute disponibilité** (High Availability) et non de la **maintenabilité**. La maintenabilité fait référence à la facilité avec laquelle un système peut être maintenu et mis à jour pour s'assurer qu'il fonctionne correctement et efficacement, tandis que la haute disponibilité garantit que les services sont toujours accessibles même en cas de panne.
+
+Définitions des termes :
+ - **Maintainability (Maintenabilité)** : Capacité d'un système à être entretenu, réparé ou mis à jour rapidement et efficacement pour assurer un fonctionnement continu.
+ - **High Availability (Haute disponibilité)** : Capacité d'un système à rester accessible et fonctionnel même en cas de panne, en s'appuyant sur la redondance.
+
+Tags: #techblackBoard"
+"#Microsoft Learn | Question 1
+
+You need to implement encryption at rest by using transparent data encryption (TDE).
+You implement a master key.
+What should you do next?
+
+Options:
+a) Back up the master database.
+b) Create a certificate that is protected by the master key.
+c) Create a database encryption key.
+d) Turn on the database encryption process.","Correct Answer: b) Create a certificate that is protected by the master key
+
+Explication : Une fois que vous avez créé une clé principale (master key), l'étape suivante pour implémenter le chiffrement transparent des données (TDE) est de créer un certificat protégé par cette clé. Ce certificat est ensuite utilisé pour créer une clé de chiffrement de base de données.
+
+Les autres options ne sont pas correctes car la base de données ne doit pas être sauvegardée à ce stade, et le processus de chiffrement de la base de données ne peut pas être activé avant que la clé de chiffrement ne soit créée.
+
+Définitions des termes :
+ - **Master Key (Clé principale)** : Une clé de chiffrement utilisée pour protéger d'autres clés dans une base de données.
+ - **Transparent Data Encryption (TDE)** : Une fonctionnalité qui permet de chiffrer automatiquement les données au repos dans une base de données SQL sans modifier les applications existantes.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 2
+
+You have an Azure Data Lake Storage Gen2 account.
+You grant developers Read and Write permissions by using ACLs to the files in the path \root\input\cleaned.
+The developers report that they cannot open the files.
+
+How should you modify the permissions to ensure that the developers can open the files?
+
+Options:
+a) Add Contributor permission to the developers.
+b) Add Execute permissions to the files.
+c) Grant Execute permissions to all folders.
+d) Grant Execute permissions to the root folder only.","Correct Answer: c) Grant Execute permissions to all folders
+
+Explication : Pour que les développeurs puissent ouvrir les fichiers, ils doivent avoir des **permissions d'exécution (Execute permissions)** sur tous les dossiers menant aux fichiers, en plus des permissions de lecture et d'écriture sur les fichiers eux-mêmes. Les permissions d'exécution sont nécessaires pour permettre la traversée des dossiers dans la hiérarchie. Ajouter des permissions de contributeur ou d'exécution uniquement sur les fichiers ou le dossier racine ne résoudra pas ce problème.
+
+Définitions des termes :
+ - **ACL (Access Control List)** : Une liste qui définit les permissions sur des fichiers et dossiers spécifiques.
+ - **Execute Permission** : Une permission qui permet à un utilisateur de traverser des dossiers pour accéder à un fichier.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 3
+
+You use Azure Data Factory to connect to a notebook that runs in an Azure Databricks cluster. The connection is set to use access tokens.
+
+You need to revoke a user's token.
+What should you use?
+
+Options:
+a) Access control (IAM)
+b) Conditional Access
+c) the Admin Console
+d) Token Management API 2.0","Correct Answer: d) Token Management API 2.0
+
+Explication : Pour révoquer un jeton d'accès d'un utilisateur dans Azure Databricks, vous devez utiliser l'**API de gestion des jetons (Token Management API 2.0)**. L'API permet de créer, lister et révoquer les jetons d'accès utilisés pour authentifier les connexions. Les autres options, comme l'**Admin Console**, ne permettent pas de révoquer les jetons d'accès.
+
+Définitions des termes :
+ - **Token Management API 2.0** : Une API dans Azure Databricks qui permet de gérer les jetons d'accès personnels, y compris leur révocation.
+ - **Access Control (IAM)** : Un mécanisme utilisé pour définir les permissions des utilisateurs, mais ne permet pas la gestion des jetons d'accès.
+ - **Conditional Access** : Utilisé pour restreindre l'accès aux applications en fonction de conditions définies, mais pas pour la gestion des jetons.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 4
+
+You need to grant an Azure Active Directory user access to write data to an Azure Data Lake Storage Gen2 account.
+Which security technology should you use to grant the access?
+
+Options:
+a) ACL
+b) NTFS
+c) OAuth 2.0 Bearer Tokens
+d) RBAC","Correct Answer: d) RBAC
+
+Explication : **Role-Based Access Control (RBAC)** est utilisé pour gérer les accès à **Azure Data Lake Storage Gen2** via **Azure Active Directory**. RBAC permet d'accorder des rôles spécifiques, tels que **contributeur** ou **lecteur**, pour permettre aux utilisateurs d'accéder et de manipuler les données dans le compte de stockage. Les autres technologies ne permettent pas de gérer les permissions d'accès pour écrire des données dans **Azure Data Lake Storage Gen2** de manière aussi granulaire.
+
+Définitions des termes :
+ - **RBAC (Role-Based Access Control)** : Un mécanisme de gestion des permissions basé sur les rôles qui permet d'accorder des accès spécifiques aux utilisateurs en fonction de leur rôle.
+ - **Azure Active Directory** : Un service de gestion des identités et des accès dans le cloud.
+ - **ACL (Access Control List)** : Utilisée pour gérer les permissions sur des fichiers ou dossiers spécifiques, mais RBAC est plus large et gère des rôles au niveau du service.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 5
+
+You have an Azure Synapse Analytics workspace.
+You need to monitor bottlenecks related to the SQL Server OS state on each node of the dedicated SQL pools.
+
+Which view should you use?
+
+Options:
+a) sys.dm_pdw_nodes
+b) sys.dm_pdw_os_threads
+c) sys.dm_pdw_wait_stats
+d) sys.dm_pdw_waits","Correct Answer: c) sys.dm_pdw_wait_stats
+
+Explication : La vue **sys.dm_pdw_wait_stats** fournit des informations sur les statistiques d'attente liées à l'état du système d'exploitation SQL Server pour chaque instance exécutée sur les différents nœuds. Cette vue est utilisée pour surveiller les goulets d'étranglement liés aux requêtes et aux files d'attente de transmission. Les autres options, comme **sys.dm_pdw_nodes** et **sys.dm_pdw_os_threads**, ne fournissent pas d'informations spécifiques sur les statistiques d'attente liées à l'état du système d'exploitation SQL Server.
+
+Définitions des termes :
+ - **sys.dm_pdw_wait_stats** : Une vue dans SQL Server qui fournit des informations sur les statistiques d'attente rencontrées lors de l'exécution d'une requête.
+ - **sys.dm_pdw_nodes** : Fournit des informations sur l'état des nœuds, mais pas spécifiquement sur les statistiques d'attente.
+ - **sys.dm_pdw_os_threads** : Donne des informations sur les threads en cours d'exécution, mais pas sur les goulets d'étranglement.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 6
+
+You monitor an Azure Stream Analytics job and discover that the Backlogged Input Events metrics show non-zero values for the last few hours.
+What should you do to improve job performance without changing the query?
+
+Options:
+a) Increase the number of the Streaming Units (SU).
+b) Increase the settings for late events.
+c) Move the job to the dedicated Stream Analytics cluster.
+d) Repartition the input stream.","Correct Answer: a) Increase the number of the Streaming Units (SU)
+
+Explication : Augmenter le nombre de **Streaming Units (SU)** ajoute plus de puissance de calcul au travail, ce qui permet de traiter plus rapidement les événements en attente (backlogged events). Les autres options, comme augmenter les paramètres des événements en retard ou déplacer le travail vers un cluster dédié, ne résoudraient pas ce problème de performance. Le repartitionnement du flux d'entrée nécessite des changements dans la définition de la requête.
+
+Définitions des termes :
+ - **Streaming Units (SU)** : Unité de calcul utilisée dans Azure Stream Analytics pour allouer des ressources au traitement des données en temps réel.
+ - **Backlogged Input Events** : Indicateur qui montre le nombre d'événements en attente de traitement.
+ - **Dedicated Stream Analytics Cluster** : Une option qui permet d'avoir des clusters administrés dédiés pour les travaux de streaming, mais qui ne résout pas les problèmes liés à la surcharge de calcul.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 7
+
+You have two Azure Data Factory pipelines.
+You need to monitor the runtimes of the pipelines.
+What should you do?
+
+Options:
+a) From Azure Data Studio, use the performance monitor view.
+b) From the Azure Monitor blade of the Azure portal, review the metrics.
+c) From the Data Factory blade of the Azure portal, review the Monitor & Manage tile.","Correct Answer: c) From the Data Factory blade of the Azure portal, review the Monitor & Manage tile
+
+Explication : Les **runtimes** des pipelines existants peuvent être surveillés dans le portail Azure, sur la lame **Data Factory**, sous l'onglet **Monitor & Manage**. **Azure Data Studio** n'est pas utilisé pour surveiller **Azure Data Factory**, et bien que **Azure Monitor** soit utilisé pour certaines métriques, les pipelines peuvent être surveillés directement dans le portail Data Factory.
+
+Définitions des termes :
+ - **Monitor & Manage** : Une fonctionnalité dans le portail Azure utilisée pour surveiller les exécutions de pipelines dans Azure Data Factory.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 8
+
+You have an Azure Data Factory named ADF1.
+You need to ensure that you can analyze pipeline runtimes for ADF1 for the last 90 days.
+What should you use?
+
+Options:
+a) Azure Data Factory
+b) Azure Monitor
+c) Azure Stream Analytics
+d) Azure App Insights","Correct Answer: b) Azure Monitor
+
+Explication : **Azure Data Factory** stocke uniquement les **runtimes** des pipelines pour une durée de 45 jours. Pour analyser les **runtimes** sur une période plus longue, les données doivent être envoyées à **Azure Monitor**, qui peut conserver les informations sur une plus longue période et permettre une analyse détaillée.
+
+Définitions des termes :
+ - **Azure Monitor** : Un service dans Azure qui collecte, analyse et agit sur les métriques et logs provenant des ressources cloud et locales.
+ - **Pipeline Runtime** : Le temps d'exécution d'un pipeline dans Azure Data Factory, qui peut être surveillé pour identifier les problèmes de performance.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 9
+
+You have an Azure Data Factory named ADF1.
+You need to review Data Factory pipeline runtimes for the last seven days. The solution must provide a graphical view of the data.
+What should you use?
+
+Options:
+a) the Dashboard view of the pipeline runs
+b) the List view of the pipeline runs
+c) the Gantt view of the pipeline runs
+d) the Overview tab of Azure Data Factory Studio","Correct Answer: c) the Gantt view of the pipeline runs
+
+Explication : La **vue Gantt** des exécutions de pipeline fournit une vue graphique des données de temps d'exécution, permettant de voir quels pipelines s'exécutent simultanément et lesquels s'exécutent à différents moments. Les autres options, comme la vue **Dashboard** ou **List**, ne fournissent pas une représentation graphique aussi claire des exécutions.
+
+Définitions des termes :
+ - **Gantt View** : Une vue graphique qui permet de visualiser le chevauchement des exécutions de pipeline sur une ligne de temps.
+ - **Pipeline Runtime** : Le temps d'exécution d'un pipeline dans Azure Data Factory, utile pour surveiller les performances et l'ordonnancement.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 10
+
+You have an Azure Databricks cluster that uses Databricks Runtime 10.1.
+You need to automatically compact small files for creating new tables, so that the target file size is appropriate to the use case.
+What should you set?
+
+Options:
+a) delta.autoOptimize.autoCompact = auto
+b) delta.autoOptimize.autoCompact = false
+c) delta.autoOptimize.autoCompact = legacy
+d) delta.autoOptimize.autoCompact = true","Correct Answer: a) delta.autoOptimize.autoCompact = auto
+
+Explication : Le paramètre **delta.autoOptimize.autoCompact = auto** permet de compacter automatiquement les fichiers à une taille optimale en fonction du cas d'usage. Les autres options, comme **delta.autoOptimize.autoCompact = true** ou **legacy**, compactent les fichiers à une taille de 128 MB, ce qui peut ne pas être optimal pour tous les cas. La valeur **false** désactive la compaction automatique.
+
+Définitions des termes :
+ - **Auto-compaction** : Une fonctionnalité qui permet de fusionner automatiquement des petits fichiers pour optimiser les performances des requêtes.
+ - **Delta Lake** : Une couche de stockage fiable sur un lac de données avec prise en charge des transactions ACID.
+ - **Databricks Runtime 10.1** : Une version du runtime Azure Databricks qui inclut des optimisations pour le traitement des données.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 11
+
+You monitor an Azure Data Factory pipeline that occasionally fails.
+You need to implement an alert that will contain failed pipeline run metrics. The solution must minimize development effort.
+
+Which two actions achieve the goal? Each correct answer presents a complete solution.
+
+Options:
+a) From Azure portal, create an alert and add the metrics.
+b) From the Monitor page of Azure Data Factory Studio, create an alert.
+c) Implement a Web activity in the pipeline.
+d) Implement a WebHook activity in the pipeline.","Correct Answers: a) From Azure portal, create an alert and add the metrics.
+                 b) From the Monitor page of Azure Data Factory Studio, create an alert.
+
+Explication : La meilleure façon de minimiser les efforts de développement est de créer une alerte directement depuis le portail **Azure** ou depuis la page de surveillance (**Monitor**) de **Azure Data Factory Studio**. Cela permet de surveiller les métriques des pipelines échoués sans avoir à implémenter des activités supplémentaires comme des **Web activities** ou des **WebHook activities**, qui nécessitent plus de développement.
+
+Définitions des termes :
+ - **Azure Monitor** : Un service qui permet de créer des alertes basées sur des métriques pour surveiller les ressources cloud.
+ - **Web activity** : Une activité dans Azure Data Factory qui peut envoyer des requêtes HTTP pour déclencher des alertes ou exécuter des services externes, mais elle nécessite plus de configuration.
+ - **WebHook activity** : Permet d'envoyer des notifications HTTP à des services externes, mais elle nécessite également plus d'efforts de développement pour être configurée correctement.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 12
+
+You have an Azure Synapse Analytics workspace that includes an Azure Synapse Analytics cluster named Cluster1.
+You need to review the estimated execution plan for a query on a specific node of Cluster1. The query has a spid of 94 and a distribution ID of 5.
+
+Which command should you run?
+
+Options:
+a) DBCC PDW_SHOWEXECUTIONPLAN (5, 94)
+b) DBCC SHOWEXECUTIONPLAN (5, 94)
+c) SELECT * FROM sys.dm_exec_query_plan WHERE spid = 94 AND distribution_id = 5
+d) SELECT * FROM sys.pdw.nodes_exec_query_plan WHERE spid = 94 AND distribution_id = 5","Correct Answer: a) DBCC PDW_SHOWEXECUTIONPLAN (5, 94)
+
+Explication : La commande **DBCC PDW_SHOWEXECUTIONPLAN** est utilisée pour revoir le plan d'exécution estimé d'une requête spécifique sur un nœud donné d'un cluster dans **Azure Synapse Analytics**. Les autres options, comme les commandes **sys.dm_exec_query_plan** ou **sys.pdw.nodes_exec_query_plan**, ne permettent pas de visualiser directement le plan d'exécution d'une requête pour un **spid** et un **distribution ID** spécifiques.
+
+Définitions des termes :
+ - **DBCC PDW_SHOWEXECUTIONPLAN** : Une commande qui affiche le plan d'exécution estimé pour une requête dans Azure Synapse Analytics.
+ - **SPID** : Identifiant de session de processus, utilisé pour identifier une requête spécifique.
+ - **Distribution ID** : Identifiant de distribution dans un cluster distribué, utilisé pour exécuter les requêtes en parallèle sur plusieurs nœuds.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 13
+
+You have an Azure Synapse Analytics database named DB1.
+You need to increase the concurrency available for DB1.
+
+Which cmdlet should you run?
+
+Options:
+a) Set-AzSqlDatabase
+b) Start-AzSqlDatabaseActivity
+c) Update-AzKustoDatabase
+d) Update-AzSynapseSqlDatabase","Correct Answer: a) Set-AzSqlDatabase
+
+Explication : La commande **Set-AzSqlDatabase** est utilisée pour augmenter la concurrence sur une base de données dans **Azure Synapse Analytics**. Cette commande permet de redimensionner la base de données, ce qui est nécessaire pour augmenter la concurrence. Les autres commandes, comme **Start-AzSqlDatabaseActivity**, ne sont pas utilisées pour gérer la concurrence, et **Update-AzKustoDatabase** et **Update-AzSynapseSqlDatabase** concernent des bases de données différentes.
+
+Définitions des termes :
+ - **Set-AzSqlDatabase** : Une cmdlet dans PowerShell qui permet de modifier les paramètres d'une base de données SQL dans Azure, notamment pour augmenter la concurrence.
+ - **Concurrence** : Le nombre de requêtes ou d'opérations qui peuvent être exécutées en parallèle sur une base de données.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 14
+
+You have an Azure Synapse Analytics workspace.
+You need to build a materialized view.
+
+Which two items should be included in the SELECT clause of the view? Each correct answer presents part of the solution.
+
+Options:
+a) a subquery
+b) an aggregate function
+c) the GROUP BY clause
+d) the HAVING clause
+e) the OPTION clause","Correct Answers: b) an aggregate function
+                 c) the GROUP BY clause
+
+Explication : Lors de la création d'une **vue matérialisée** dans **Azure Synapse Analytics**, la clause **SELECT** doit contenir au moins une fonction d'agrégation ainsi que la clause **GROUP BY** correspondante pour agréger les données. Les autres clauses comme **HAVING** ou **OPTION** sont optionnelles, et une **subquery** n'est pas requise dans cette situation.
+
+Définitions des termes :
+ - **Aggregate function** : Une fonction qui effectue un calcul sur un ensemble de valeurs et renvoie une valeur unique, comme SUM, COUNT, AVG, etc.
+ - **GROUP BY** : Une clause SQL qui regroupe les lignes qui ont les mêmes valeurs dans des colonnes spécifiées et permet d'utiliser des fonctions d'agrégation.
+ - **Materialized view** : Une vue qui stocke physiquement les résultats d'une requête, améliorant ainsi les performances des requêtes répétées.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 15
+
+You have an Azure Synapse Analytics pipeline connected to an Azure SQL database.
+You need to use data masking to obfuscate data and limit its exposure in lower-level environments.
+
+Which three options can be used for dynamic data masking? Each correct answer presents a complete solution.
+
+Options:
+a) Always Encrypted
+b) Custom String
+c) Default
+d) Number
+e) row-level security (RLS)","Correct Answers: b) Custom String
+                 c) Default
+                 d) Number
+
+Explication : Les options **Default**, **Number** et **Custom String** sont des méthodes valides pour implémenter le **masquage dynamique des données** au niveau de la base de données SQL. **RLS (row-level security)** et **Always Encrypted** ne sont pas des solutions de masquage des données. **RLS** est une fonction de restriction d'accès, tandis que **Always Encrypted** gère le chiffrement au niveau de la base de données.
+
+Définitions des termes :
+ - **Dynamic Data Masking** : Une fonctionnalité qui permet de masquer ou d'obfusquer les données pour limiter leur exposition dans certains environnements.
+ - **Custom String** : Une option qui remplace les valeurs masquées par une chaîne de caractères définie par l'utilisateur.
+ - **Default Masking** : Une option qui masque les valeurs en utilisant un masque prédéfini par défaut.
+ - **Number Masking** : Une option qui masque les données numériques en les remplaçant par une valeur fixe ou un modèle de masque numérique.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 15
+
+You have an Azure Synapse Analytics pipeline connected to an Azure SQL database.
+You need to use data masking to obfuscate data and limit its exposure in lower-level environments.
+
+Which three options can be used for dynamic data masking? Each correct answer presents a complete solution.
+
+Options:
+a) Always Encrypted
+b) Custom String
+c) Default
+d) Number
+e) row-level security (RLS)","Correct Answers: b) Custom String
+                 c) Default
+                 d) Number
+
+Explication : Les options **Default**, **Number** et **Custom String** sont des méthodes valides pour implémenter le **masquage dynamique des données** au niveau de la base de données SQL. **RLS (row-level security)** et **Always Encrypted** ne sont pas des solutions de masquage des données. **RLS** est une fonction de restriction d'accès, tandis que **Always Encrypted** gère le chiffrement au niveau de la base de données.
+
+Définitions des termes :
+ - **Dynamic Data Masking** : Une fonctionnalité qui permet de masquer ou d'obfusquer les données pour limiter leur exposition dans certains environnements.
+ - **Custom String** : Une option qui remplace les valeurs masquées par une chaîne de caractères définie par l'utilisateur.
+ - **Default Masking** : Une option qui masque les valeurs en utilisant un masque prédéfini par défaut.
+ - **Number Masking** : Une option qui masque les données numériques en les remplaçant par une valeur fixe ou un modèle de masque numérique.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 16
+
+You have an Azure subscription that contains an Azure SQL database named DB1.
+You need to implement row-level security (RLS) for DB1. The solution must block users from updating rows with values that violate RLS.
+
+Which block predicate should you use?
+
+Options:
+a) AFTER INSERT
+b) AFTER UPDATE
+c) BEFORE DELETE
+d) BEFORE UPDATE","Correct Answer: b) AFTER UPDATE
+
+Explication : Le prédicat **AFTER UPDATE** empêche les utilisateurs de modifier des lignes en fonction de valeurs qui violent le prédicat de la sécurité au niveau des lignes (RLS). Le prédicat **BEFORE UPDATE**, quant à lui, est utilisé pour empêcher les utilisateurs de mettre à jour des lignes qui violent déjà le prédicat.
+
+Définitions des termes :
+ - **Row-Level Security (RLS)** : Une fonctionnalité qui permet de restreindre l'accès à des lignes spécifiques d'une table pour certains utilisateurs.
+ - **Block predicate** : Un prédicat qui empêche certaines actions, comme les insertions, mises à jour ou suppressions, si les valeurs ne respectent pas les règles de sécurité définies.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 17
+
+You have a job that aggregates data over a five-second tumbling window.
+You are monitoring the job and notice that the SU (Memory) % Utilization metric is more than 80 percent, and the Backlogged Input Events metric shows values greater than 0.
+
+What should you do to resolve the performance issue?
+
+Options:
+a) Change the compatibility level.
+b) Change the tumbling window to a snapshot window.
+c) Create a user-defined aggregate to perform the aggregation.
+d) Increase the number of the Streaming Units (SU).","Correct Answer: d) Increase the number of the Streaming Units (SU)
+
+Explication : Vous devriez augmenter le nombre de **Streaming Units (SU)** car cela ajoute plus de puissance de calcul à la tâche. Lorsque la métrique des **Backlogged Input Events** est supérieure à zéro, cela signifie que la tâche ne peut pas traiter tous les événements entrants. Changer le niveau de compatibilité n'est pas pertinent pour résoudre ce type de problème de performance, et utiliser une **user-defined aggregate** n'est utile que si la fonction d'agrégation n'est pas disponible dans le dialecte SQL de la requête.
+
+Définitions des termes :
+ - **Streaming Units (SU)** : Unité de calcul utilisée dans les services de traitement de flux de données comme Azure Stream Analytics. Plus vous avez de SU, plus vous avez de puissance de calcul disponible.
+ - **Backlogged Input Events** : Événements qui n'ont pas pu être traités immédiatement en raison de la surcharge des ressources allouées à la tâche.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 18
+
+You have an ELT solution that uses an Azure Storage account named datastg, an Azure HDInsight cluster, and an Azure Data Factory resource. 
+You create a Data Factory pipeline by using the following JSON file:
+
+{
+   'name': 'MyHiveActivity',
+   'type': 'HDInsightHive',
+   'linkedServiceName': {
+      'referenceName': 'MyHDIILinkedService',
+      'type': 'LinkedServiceReference'
+   },
+   'typeProperties': {
+      'scriptPath': 'adftutorial\hivescripts\hivescript.hql',
+      'getDebugInfo': 'Failure',
+      'defines': {'Output': ''}
+   },
+   'scriptLinkedService': {
+      'referenceName': 'MyStorageLinkedService',
+      'type': 'LinkedServiceReference'
+   }
+}
+
+What should you add to the Output value in the JSON file?
+
+Options:
+a) http://data@datastg.blob.core.windows.net/devices/
+b) wasb://data@datastg.blob.core.windows.net/data/devices/
+c) wasb://data@datastg.blob.core.windows.net/devices/
+d) wasb://datastg.blob.core.windows.net/data/devices/
+","Correct Answer: c) wasb://data@datastg.blob.core.windows.net/devices/
+
+Explication : Le format correct pour référencer un fichier dans un script Hive, afin d'écrire vers un **Azure Storage account**, est d'utiliser le schéma **wasb://** suivi du chemin du fichier dans le conteneur de stockage. 
+Les autres formats donnés ne sont pas corrects pour cette configuration.
+
+Définitions des termes :
+ - **ELT (Extract, Load, Transform)** : Une méthode de traitement des données où les données sont extraites d'une source, chargées dans une destination, puis transformées.
+ - **HDInsight** : Un service cloud qui facilite le traitement de grandes quantités de données avec des frameworks open-source comme Hadoop et Hive.
+ - **wasb://** : Un schéma URI utilisé pour accéder aux données dans un conteneur de stockage d'objets Azure via le service Blob.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 19
+
+You create a data flow activity in an Azure Synapse Analytics pipeline.
+You plan to use the data flow to read data from a fixed-length text file.
+
+You need to create the columns from each line of the text file. The solution must ensure that the data flow only writes three of the columns to a CSV file.
+
+Which three types of tasks should you add to the data flow activity?
+
+Options:
+a) aggregate
+b) derived column
+c) flatten
+d) select
+e) sink","Correct Answer: b) derived column, d) select, e) sink
+
+Explication : L'activité de flux de données dans Azure Synapse nécessite trois étapes spécifiques pour cette tâche. 
+- **Derived column** : Vous permet d'extraire les colonnes à partir des lignes du fichier texte.
+- **Select** : Sélectionne les colonnes que vous souhaitez écrire dans le fichier CSV.
+- **Sink** : Écrit les données extraites dans un fichier CSV.
+L'option **aggregate** n'est pas nécessaire car aucune agrégation de données n'est demandée, et **flatten** n'est pas requise car il n'y a pas besoin d'aplatir les données.
+
+Définitions des termes :
+- **Derived column** : Une transformation dans un flux de données qui permet de créer ou modifier des colonnes basées sur une expression.
+- **Select** : Une transformation qui choisit les colonnes spécifiques à inclure dans le jeu de données final.
+- **Sink** : Une étape dans le pipeline qui enregistre les données dans un emplacement spécifié, comme un fichier ou une base de données.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question 20
+
+You plan to build an event processing solution.
+
+You need to ensure that the solution will support real-time processing and batch processing of events.
+
+Which two services should you include in the solution?
+
+Options:
+a) Azure Cosmos DB
+b) Azure Data Factory
+c) Azure Event Hubs
+d) Azure Stream Analytics","Correct Answer: c) Azure Event Hubs, d) Azure Stream Analytics
+
+Explication : Azure Event Hubs et Azure Stream Analytics sont les services recommandés pour la gestion des événements en temps réel et en traitement par lots.
+
+- **Azure Event Hubs** : Il permet de recevoir des événements et de les envoyer vers plusieurs voies différentes pour le traitement.
+- **Azure Stream Analytics** : Il traite les messages des Event Hubs en temps réel ou sous forme de traitement par lots.
+
+Les autres options ne conviennent pas car **Azure Cosmos DB** est une base de données NoSQL qui ne gère pas directement le traitement d'événements, et **Azure Data Factory** est utilisé principalement pour l'orchestration de pipelines de données, mais pas pour le traitement d'événements en temps réel.
+
+Tags: #Microsoft Learn"
+"#Microsoft Learn | Question - Azure Synapse Analytics
+
+You have a table in an Azure Synapse Analytics dedicated SQL pool.
+
+The table was created by using the following Transact-SQL statement:
+
+CREATE TABLE [dbo].[DimEmployee](
+[EmployeeKey] [int] IDENTITY(1,1) NOT NULL,
+[EmployeeID] [int] NOT NULL,
+[FirstName] [varchar(100)] NOT NULL,
+[LastName] [varchar(100)] NOT NULL,
+[JobTitle] [varchar(100)] NOT NULL,
+[LastHireDate] [date] NOT NULL,
+[StreetAddress] [varchar(500)] NOT NULL,
+[City] [varchar(200)] NOT NULL,
+[StateProvince] [varchar(50)] NOT NULL,
+[Portalcode] [varchar(10)] NOT NULL)
+
+You need to alter the table to meet the following requirements:
+- Ensure that users can identify the current manager of employees.
+- Support creating an employee reporting hierarchy for your entire company.
+- Provide fast lookup of the managers' attributes such as name and job title.
+
+Which column should you add to the table?
+
+Options:
+a) [ManagerEmployeeID] [smallint] NULL
+b) [ManagerEmployeeKey] [smallint] NULL
+c) [ManagerEmployeeKey] [int] NULL
+d) [ManagerName] [varchar(200)] NULL","Correct Answer: c) [ManagerEmployeeKey] [int] NULL
+
+Explication : Pour identifier le Manager, la meilleure option est d'ajouter une colonne avec le type de données **[ManagerEmployeeKey] [int] NULL** qui est cohérent avec la colonne **[EmployeeKey]**, ce qui permet de gérer l'arborescence hiérarchique de l'organisation efficacement.
+
+Les autres options ne sont pas optimales car:
+- **[ManagerEmployeeID] [smallint] NULL** est incorrect car le type de données est trop petit pour représenter un large éventail d'identifiants.
+- **[ManagerEmployeeKey] [smallint] NULL** est aussi limité en taille.
+- **[ManagerName] [varchar(200)] NULL** ne permet pas de créer facilement une relation hiérarchique pour gérer les relations de type Manager-Employé.
+
+Tags: #Microsoft Learn"
+"#examTopics | Question - Azure Synapse Analytics
+
+You have a table in an Azure Synapse Analytics dedicated SQL pool.
+
+The table was created by using the following Transact-SQL statement:
+
+CREATE TABLE [dbo].[DimEmployee](
+[EmployeeKey] [int] IDENTITY(1,1) NOT NULL,
+[EmployeeID] [int] NOT NULL,
+[FirstName] [varchar(100)] NOT NULL,
+[LastName] [varchar(100)] NOT NULL,
+[JobTitle] [varchar(100)] NOT NULL,
+[LastHireDate] [date] NOT NULL,
+[StreetAddress] [varchar(500)] NOT NULL,
+[City] [varchar(200)] NOT NULL,
+[StateProvince] [varchar(50)] NOT NULL,
+[Portalcode] [varchar(10)] NOT NULL)
+
+You need to alter the table to meet the following requirements:
+- Ensure that users can identify the current manager of employees.
+- Support creating an employee reporting hierarchy for your entire company.
+- Provide fast lookup of the managers' attributes such as name and job title.
+
+Which column should you add to the table?
+
+Options:
+a) [ManagerEmployeeID] [smallint] NULL
+b) [ManagerEmployeeKey] [smallint] NULL
+c) [ManagerEmployeeKey] [int] NULL
+d) [ManagerName] [varchar(200)] NULL","Correct Answer: c) [ManagerEmployeeKey] [int] NULL
+
+Explication : Pour identifier le Manager, la meilleure option est d'ajouter une colonne avec le type de données **[ManagerEmployeeKey] [int] NULL** qui est cohérent avec la colonne **[EmployeeKey]**, ce qui permet de gérer l'arborescence hiérarchique de l'organisation efficacement.
+
+Les autres options ne sont pas optimales car:
+- **[ManagerEmployeeID] [smallint] NULL** est incorrect car le type de données est trop petit pour représenter un large éventail d'identifiants.
+- **[ManagerEmployeeKey] [smallint] NULL** est aussi limité en taille.
+- **[ManagerName] [varchar(200)] NULL** ne permet pas de créer facilement une relation hiérarchique pour gérer les relations de type Manager-Employé.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics Data Warehouse
+
+You have a table named SalesFact in an enterprise data warehouse in Azure Synapse Analytics. SalesFact contains sales data from the past 36 months and has the following characteristics:
+- It is partitioned by month
+- Contains one billion rows
+- Has a clustered columnstore index
+
+At the beginning of each month, you need to remove data from SalesFact that is older than 36 months as quickly as possible. Which three actions should you perform in sequence in a stored procedure?
+
+Options:
+- Switch the partition containing the stale data from SalesFact to SalesFact_Work.
+- Truncate the partition containing the stale data.
+- Drop the SalesFact_Work table.
+- Create an empty table named SalesFact_Work that has the same schema as SalesFact.
+- Execute a DELETE statement where the value in the Date column is more than 36 months ago.
+- Copy the data to a new table by using CREATE TABLE AS SELECT (CTAS).","Correct Answer:
+1) Create an empty table named SalesFact_Work that has the same schema as SalesFact.
+2) Switch the partition containing the stale data from SalesFact to SalesFact_Work.
+3) Drop the SalesFact_Work table.
+
+Explication : Cette séquence permet de gérer efficacement les partitions de données anciennes, en utilisant la table SalesFact_Work pour héberger les données supprimées temporairement.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics Data Warehouse
+
+You have a table named SalesFact in an enterprise data warehouse in Azure Synapse Analytics. SalesFact contains sales data from the past 36 months and has the following characteristics:
+- It is partitioned by month
+- Contains one billion rows
+- Has a clustered columnstore index
+
+At the beginning of each month, you need to remove data from SalesFact that is older than 36 months as quickly as possible. Which three actions should you perform in sequence in a stored procedure?
+
+Options:
+- Switch the partition containing the stale data from SalesFact to SalesFact_Work.
+- Truncate the partition containing the stale data.
+- Drop the SalesFact_Work table.
+- Create an empty table named SalesFact_Work that has the same schema as SalesFact.
+- Execute a DELETE statement where the value in the Date column is more than 36 months ago.
+- Copy the data to a new table by using CREATE TABLE AS SELECT (CTAS).","Correct Answer:
+1) Create an empty table named SalesFact_Work that has the same schema as SalesFact.
+2) Switch the partition containing the stale data from SalesFact to SalesFact_Work.
+3) Drop the SalesFact_Work table.
+
+Explication : Cette séquence permet de gérer efficacement les partitions de données anciennes, en utilisant la table SalesFact_Work pour héberger les données supprimées temporairement.
+
+Définitions importantes :
+- **Partition** : Un mécanisme permettant de diviser de grandes tables en segments plus petits et gérables, souvent par des dates ou d'autres colonnes pertinentes.
+- **Clustered Columnstore Index** : Un index qui stocke les données en colonnes plutôt qu'en lignes, ce qui permet d'optimiser la compression des données et d'améliorer les performances des requêtes analytiques.
+- **CREATE TABLE AS SELECT (CTAS)** : Un SQL qui permet de copier les données d'une table existante vers une nouvelle table.
+
+Justifications des mauvaises réponses :
+- **Truncate the partition containing the stale data** : Cette action seule ne permet pas de gérer la suppression efficace des partitions sans risque de perte de données ou de performances dégradées.
+- **Execute a DELETE statement where the value in the Date column is more than 36 months ago** : Les DELETE statements sont inefficaces pour gérer de grandes quantités de données dans un environnement partitionné, car ils peuvent entraîner des problèmes de performance.
+- **Copy the data to a new table by using CTAS** : Utiliser CTAS sans partitionner les données ou manipuler les partitions d'abord est sous-optimal pour un volume de données aussi important.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics Data Warehouse
+
+You have files and folders in Azure Data Lake Storage Gen2 for an Azure Synapse workspace as shown in the following exhibit:
+- /topfolder/
+- File1.csv
+- /folder1/
+- File2.csv
+- /folder2/
+- File3.csv
+- File4.csv
+
+You create an external table named ExtTable that has LOCATION='/topfolder/'.
+When you query ExtTable by using an Azure Synapse Analytics serverless SQL pool, which files are returned?
+
+Options:
+a) File2.csv and File3.csv only
+b) File1.csv and File4.csv only
+c) File1.csv, File2.csv, File3.csv, and File4.csv
+d) File1.csv only
+","Correct Answer: c) File1.csv, File2.csv, File3.csv, and File4.csv
+
+Explication : Dans un environnement de stockage Azure Data Lake Storage Gen2, la requête sur une table externe avec un chemin spécifié renvoie toutes les données des fichiers situés dans ce chemin ou dans les sous-dossiers du chemin.
+
+Définitions importantes :
+- **External Table** : Une table qui référence des fichiers externes dans un stockage comme Azure Data Lake, permettant de requêter ces fichiers via SQL sans les déplacer.
+- **Azure Synapse Analytics Serverless SQL Pool** : Une solution sans serveur qui permet d'exécuter des requêtes SQL sur des fichiers stockés dans Azure Data Lake sans nécessiter de provisionnement ou de gestion de ressources dédiées.
+- **LOCATION** : Une option utilisée pour définir le chemin vers les fichiers à interroger lorsqu'on crée une table externe.
+
+Justifications des mauvaises réponses :
+- **File2.csv and File3.csv only** : Cette réponse est incorrecte car elle ne considère que les fichiers dans des sous-dossiers, mais pas ceux au niveau supérieur.
+- **File1.csv and File4.csv only** : Cette réponse est incorrecte car elle exclut les fichiers dans les sous-dossiers, qui sont également pris en compte.
+- **File1.csv only** : Cette réponse est incorrecte car elle exclut les autres fichiers disponibles dans les sous-dossiers.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics Data Warehouse
+
+You use Azure Data Factory to prepare data to be queried by Azure Synapse Analytics serverless SQL pools.
+Files are initially ingested into an Azure Data Lake Storage Gen2 account as 10 small JSON files. Each file contains the same data attributes and data from a subsidiary of your company.
+You need to move the files to a different folder and transform the data to meet the following requirements:
+- Provide the fastest possible query times.
+- Automatically infer the schema from the underlying files.
+How should you configure the Data Factory copy activity?
+To answer, select the appropriate options in the answer area.
+
+Options:
+- Copy behavior: Flatten hierarchy, Merge files, Preserve hierarchy
+- Sink file type: CSV, JSON, Parquet, TXT","Correct Answer:
+- Copy behavior: Merge files
+- Sink file type: Parquet
+
+Explication : La fusion des fichiers et l'utilisation de Parquet comme format de destination permet d'optimiser la taille des fichiers et d'améliorer les performances des requêtes.
+
+Définitions importantes :
+- **Flatten hierarchy** : Fusionne tous les fichiers et sous-dossiers dans un seul niveau.
+- **Merge files** : Combine plusieurs fichiers plus petits en un seul fichier pour améliorer l'efficacité.
+- **Preserve hierarchy** : Conserve la structure des dossiers source.
+- **Parquet** : Un format de fichier optimisé pour le stockage en colonnes, idéal pour les performances des requêtes analytiques.
+
+Justifications des mauvaises réponses :
+- **Flatten hierarchy** : Ne serait pas optimal dans ce contexte car vous ne voulez pas supprimer les structures hiérarchiques importantes.
+- **Preserve hierarchy** : Bien que cela conserve la hiérarchie des dossiers, cela n'améliore pas les performances des requêtes.
+- **Sink file type - CSV ou JSON** : Ces formats ne sont pas aussi optimisés que Parquet pour les requêtes analytiques complexes.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics Data Warehouse
+
+You use Azure Data Factory to prepare data to be queried by Azure Synapse Analytics serverless SQL pools.
+Files are initially ingested into an Azure Data Lake Storage Gen2 account as 10 small JSON files. Each file contains the same data attributes and data from a subsidiary of your company.
+You need to move the files to a different folder and transform the data to meet the following requirements:
+- Provide the fastest possible query times.
+- Automatically infer the schema from the underlying files.
+How should you configure the Data Factory copy activity?
+To answer, select the appropriate options in the answer area.
+
+Options:
+- Copy behavior: Flatten hierarchy, Merge files, Preserve hierarchy
+- Sink file type: CSV, JSON, Parquet, TXT","Correct Answer:
+- Copy behavior: Merge files
+- Sink file type: Parquet
+
+Explication : La fusion des fichiers et l'utilisation de Parquet comme format de destination permet d'optimiser la taille des fichiers et d'améliorer les performances des requêtes.
+
+Définitions importantes :
+- **Flatten hierarchy** : Fusionne tous les fichiers et sous-dossiers dans un seul niveau.
+- **Merge files** : Combine plusieurs fichiers plus petits en un seul fichier pour améliorer l'efficacité.
+- **Preserve hierarchy** : Conserve la structure des dossiers source.
+- **Parquet** : Un format de fichier optimisé pour le stockage en colonnes, idéal pour les performances des requêtes analytiques.
+
+Justifications des mauvaises réponses :
+- **Flatten hierarchy** : Ne serait pas optimal dans ce contexte car vous ne voulez pas supprimer les structures hiérarchiques importantes.
+- **Preserve hierarchy** : Bien que cela conserve la hiérarchie des dossiers, cela n'améliore pas les performances des requêtes.
+- **Sink file type - CSV ou JSON** : Ces formats ne sont pas aussi optimisés que Parquet pour les requêtes analytiques complexes.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics Data Warehouse
+
+You have a data model that you plan to implement in a data warehouse in Azure Synapse Analytics as shown in the following exhibit.
+
+All the dimension tables will be less than 2 GB after compression, and the fact table will be approximately 6 TB. The dimension tables will be relatively static, with few data inserts and updates.
+Which type of fact should you use for each table?
+
+Answer Area:
+- Dim_Customer: Hash distributed, Round-robin, Replicated
+- Dim_Employee: Hash distributed, Round-robin, Replicated
+- Dim_Time: Hash distributed, Round-robin, Replicated
+- Fact_DailyBookings: Hash distributed, Round-robin, Replicated","Correct Answer:
+- Dim_Customer: Replicated
+- Dim_Employee: Replicated
+- Dim_Time: Replicated
+- Fact_DailyBookings: Hash distributed
+
+Explication : Les tables de dimension étant petites et relativement statiques, elles sont mieux répliquées pour optimiser les performances. La table de faits, quant à elle, est grande (6 TB), il est donc préférable de la distribuer par hachage pour équilibrer la charge de traitement.
+
+Définitions importantes :
+- **Hash distributed** : Les données sont réparties de manière égale sur les nœuds de calcul, en utilisant une clé de hachage. Cela permet d'optimiser les performances pour les grandes tables comme les tables de faits.
+- **Round-robin** : Les lignes sont distribuées de manière uniforme, mais sans utiliser de clé de hachage. Il s'agit d'une option simple pour des petites tables lorsque la répartition uniforme est souhaitée.
+- **Replicated** : Les données sont dupliquées sur chaque nœud de calcul, ce qui est optimal pour les petites tables de dimension qui sont souvent jointes à des tables de faits.
+
+Justifications des mauvaises réponses :
+- **Round-robin pour les tables de dimension** : Ce mode n'est pas aussi performant que le mode répliqué pour les petites tables de dimension souvent jointes à d'autres grandes tables.
+- **Hash distributed pour les tables de dimension** : Non nécessaire car ces tables sont petites et peu volumineuses.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Data Lake Storage Gen2
+
+You have an Azure Data Lake Storage Gen2 container. Data is ingested into the container, and then transformed by a data integration application. The data is NOT modified after that. Users can read files in the container but cannot modify the files.
+
+You need to design a data archiving solution that meets the following requirements:
+- New data is accessed frequently and must be available as quickly as possible.
+- Data that is older than five years is accessed infrequently but must be available within one second when requested.
+- Data that is older than seven years is NOT accessed. After seven years, the data must be persisted at the lowest cost possible.
+- Costs must be minimized while maintaining the required availability.
+
+How should you manage the data?
+Options:
+For Five-year-old data:
+- Delete the blob
+- Move to archive storage
+- Move to cool storage
+- Move to hot storage
+
+For Seven-year-old data:
+- Delete the blob
+- Move to archive storage
+- Move to cool storage
+- Move to hot storage
+","Correct Answer:
+Five-year-old data: Move to cool storage
+Seven-year-old data: Move to archive storage
+
+Explication : 
+- **Cool storage** is optimized for data that is infrequently accessed but must still be available quickly. Therefore, it is ideal for five-year-old data.
+- **Archive storage** is for data that is rarely accessed and allows for significant cost savings. This is the best option for data that is older than seven years, which is not accessed at all.
+
+Définitions importantes :
+- **Blob** : Binary large object, which can be used to store any kind of data.
+- **Hot storage** : Designed for data that is accessed frequently.
+- **Cool storage** : For data that is infrequently accessed but requires availability within milliseconds.
+- **Archive storage** : For data that is rarely accessed and can tolerate longer retrieval times (several hours).
+
+Justifications des mauvaises réponses :
+- **Delete the blob** : Not a suitable option as the data needs to be preserved for compliance and future retrieval.
+- **Move to hot storage** : Not cost-efficient for data that is accessed infrequently or not at all.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics SQL Pool
+
+You need to create a partitioned table in an Azure Synapse Analytics dedicated SQL pool. How should you complete the Transact-SQL statement? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.
+
+Options:
+- CLUSTERED INDEX
+- COLLATE
+- DISTRIBUTION
+- PARTITION
+- PARTITION FUNCTION
+- PARTITION SCHEME
+
+Answer Area:
+CREATE TABLE table1 (
+  ID INTEGER,
+  col1 VARCHAR(10),
+  col2 VARCHAR(10)
+) WITH (
+  = HASH(ID),
+  (ID RANGE LEFT FOR VALUES (1, 1000000, 2000000))
+);","Correct Answer:
+- DISTRIBUTION = HASH(ID)
+- PARTITION (ID RANGE LEFT FOR VALUES (1, 1000000, 2000000))
+
+Explication :
+Box 1: DISTRIBUTION - Table distribution options include DISTRIBUTION = HASH (distribution_column_name), which assigns each row to one distribution by hashing the value stored in distribution_column_name.
+Box 2: PARTITION - Table partition options. Syntax: PARTITION (partition_column_name RANGE [LEFT | RIGHT] FOR VALUES ([boundary_value [...]]))
+
+Définitions importantes :
+- **Distribution** : Process of spreading data across multiple nodes for better performance and parallel processing.
+- **Partition** : Divides the data within a table into more manageable chunks based on the column values, often used with range partitioning for large datasets.
+- **Hash Distribution** : A method that assigns table rows to distribution nodes based on a hash value of the column.
+- **Range Partitioning** : Divides data into ranges based on a column value, like dates or numerical ranges.
+
+Justifications des mauvaises réponses :
+- **CLUSTERED INDEX** : This is unrelated to how the data is distributed or partitioned; it primarily affects the storage and retrieval mechanism for the table.
+- **COLLATE** : This is used to define the collation for character-based columns and does not affect distribution or partitioning.
+- **PARTITION FUNCTION** : Not applicable here as we directly define the partition strategy within the table creation.
+- **PARTITION SCHEME** : Used to specify how partitions are mapped to filegroups, not relevant in this scenario.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics Type 2 Slowly Changing Dimension (SCD)
+
+You need to design an Azure Synapse Analytics dedicated SQL pool that meets the following requirements:
+- Can return an employee record from a given point in time.
+- Maintains the latest employee information.
+- Minimizes query complexity.
+
+How should you model the employee data?
+
+Options:
+- a) as a temporal table
+- b) as a SQL graph table
+- c) as a degenerate dimension table
+- d) as a Type 2 slowly changing dimension (SCD) table","Réponse correcte :
+- d) as a Type 2 slowly changing dimension (SCD) table
+
+Explication :
+Un **Type 2 Slowly Changing Dimension (SCD)** prend en charge la version des membres de dimension. Souvent, le système source ne conserve pas les versions, donc le processus de chargement dans l'entrepôt de données détecte et gère les changements dans une table de dimension. Dans ce cas, la table de dimension doit utiliser une clé substitut pour fournir une référence unique à une version du membre de dimension. Cela inclut également des colonnes qui définissent la validité de la version par des dates (par exemple, **StartDate** et **EndDate**) et éventuellement une colonne de drapeau (comme **IsCurrent**) pour filtrer facilement les membres de dimension actuels.
+
+Définitions importantes :
+- **Type 2 SCD (Slowly Changing Dimension)** : Une technique de modélisation des données qui permet de gérer plusieurs versions d'une même entité, souvent utilisée pour suivre les changements historiques dans les entrepôts de données.
+- **StartDate / EndDate** : Indique la période de validité d'une version d'une entité, ce qui permet de garder une trace des modifications au fil du temps.
+- **IsCurrent** : Un indicateur binaire qui identifie si l'enregistrement est la version actuelle de l'entité.
+
+Justifications des mauvaises réponses :
+- **Temporal table** : Conçue pour capturer les changements de données automatiquement au fil du temps, mais n'est pas idéale pour gérer explicitement plusieurs versions de données de dimension.
+- **SQL graph table** : Conçue pour modéliser des données relationnelles avec des relations complexes, comme des graphes, mais pas nécessaire pour une gestion de versionnement des dimensions.
+- **Degenerate dimension table** : Utilisée dans les modèles où la clé de dimension est un fait, mais ne convient pas pour gérer les versions des données historiques.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Data Lake Storage Gen2 et SQL Pool dans Azure Synapse
+
+You have an enterprise-wide Azure Data Lake Storage Gen2 account. The data lake is accessible only through an Azure virtual network named VNET1.
+You are building a SQL pool in Azure Synapse that will use data from the data lake.
+Your company has a sales team. All the members of the sales team are in an Azure Active Directory group named Sales. POSIX controls are used to assign the Sales group access to the files in the data lake.
+You plan to load data to the SQL pool every hour.
+You need to ensure that the SQL pool can load the sales data from the data lake.
+
+Which three actions should you perform? Each correct answer presents part of the solution.
+
+Options:
+- A) Add the managed identity to the Sales group.
+- B) Use the managed identity as the credentials for the data load process.
+- C) Create a shared access signature (SAS).
+- D) Add your Azure Active Directory (Azure AD) account to the Sales group.
+- E) Use the shared access signature (SAS) as the credentials for the data load process.
+- F) Create a managed identity.","Réponse correcte :
+- A) Add the managed identity to the Sales group.
+- B) Use the managed identity as the credentials for the data load process.
+- F) Create a managed identity.
+
+Explication :
+L'identité managée accorde les autorisations nécessaires aux pools SQL dédiés dans l'espace de travail Azure Synapse. Une **Managed Identity** permet aux services Azure de s'authentifier automatiquement sans utiliser d'identifiants secrets. En ajoutant cette identité au groupe **Sales**, vous lui donnez les permissions nécessaires pour accéder aux fichiers dans le data lake.
+
+Définitions importantes :
+- **Managed Identity** : Un compte automatiquement géré par Azure Active Directory pour permettre une authentification sécurisée avec d'autres services Azure sans avoir besoin d'une gestion explicite des clés d'accès.
+- **POSIX Controls** : Un ensemble de contrôles de permissions souvent utilisés dans des systèmes de fichiers pour gérer les droits d'accès à des fichiers et dossiers.
+- **Shared Access Signature (SAS)** : Une URL qui permet un accès limité à des ressources stockées sur Azure pendant un certain temps. Ici, ce n'est pas recommandé dans ce scénario car une Managed Identity est plus sécurisée et adaptée.
+
+Justifications des mauvaises réponses :
+- **Créer une SAS (C)** : Une **Shared Access Signature** pourrait être utilisée, mais elle est moins sécurisée et nécessite une gestion supplémentaire pour la rotation et la révocation des clés.
+- **Ajouter votre compte Azure AD au groupe Sales (D)** : Cela ne permet pas de résoudre le problème du chargement des données via une identité managée pour le processus de chargement.
+
+Tags: #examTopics"
+"#examTopics | Question - Dynamic Data Masking dans Azure Synapse Analytics
+
+You have an Azure Synapse Analytics dedicated SQL pool that contains the users shown in the following table:
+
+| Name  | Role        |
+|-------|-------------|
+| User1 | Server admin|
+| User2 | db_datareader|
+
+User1 exécute une requête sur la base de données et les résultats renvoyés s'affichent dans l'exposition suivante :
+- BirthDate, Gender, EmailAddress, YearlyIncome (tous sont masqués pour User2)
+
+Options :
+- User2, lorsqu'il interroge la colonne YearlyIncome, recevra :
+  - a random number
+  - the values stored in the database
+  - XXXX
+- User2, lorsqu'il interroge la colonne BirthDate, recevra :
+  - a random date
+  - the values stored in the database
+  - 1900-01-01","Réponse correcte :
+- User2, lorsqu'il interroge la colonne YearlyIncome, recevra : XXXX (masqué avec la fonction default)
+- User2, lorsqu'il interroge la colonne BirthDate, recevra : 1900-01-01 (masqué avec la fonction default)
+
+Explication :
+Le Dynamic Data Masking dans Azure Synapse Analytics permet de masquer certaines colonnes pour des utilisateurs n'ayant pas les permissions nécessaires. **User2**, étant un lecteur de données (**db_datareader**), n'a pas accès aux données en clair. Les données sont donc masquées.
+- Pour la colonne **YearlyIncome**, la fonction de masquage par défaut (default) renvoie 'XXXX'.
+- Pour la colonne **BirthDate**, la fonction de masquage par défaut renvoie la date '1900-01-01'.
+
+Définitions importantes :
+- **Dynamic Data Masking** : Une fonctionnalité qui permet de masquer les données sensibles lors de la consultation pour certains utilisateurs tout en conservant les données réelles dans la base.
+- **Masquage par défaut (default masking function)** : Masque les données en remplaçant des valeurs numériques par 'XXXX' ou des dates par une date par défaut, par exemple, '1900-01-01'.
+
+Justifications des mauvaises réponses :
+- **the values stored in the database** : Cette option est incorrecte car **User2** ne dispose pas des permissions suffisantes pour voir les valeurs réelles des données masquées.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Synapse Analytics avec PolyBase
+
+You have an enterprise data warehouse in Azure Synapse Analytics.
+Using PolyBase, you create an external table named [Ext].[Items] to query Parquet files stored in Azure Data Lake Storage Gen2 without importing the data to the data warehouse.
+The external table has three columns. You discover that the Parquet files have a fourth column named ItemID.
+Which command should you run to add the ItemID column to the external table?
+
+Options :
+- A) DROP EXTERNAL FILE FORMAT parquetfile;
+- B) ALTER TABLE [Ext].[Items] ADD [ItemID] int;
+- C) DROP EXTERNAL TABLE [Ext].[Items]; CREATE EXTERNAL TABLE ...;
+- D) ALTER TABLE [Ext].[Items] ADD [ItemID] int;","Réponse correcte : C) DROP EXTERNAL TABLE [Ext].[Items]; CREATE EXTERNAL TABLE ...
+
+Explication :
+Seules les instructions DDL (Data Definition Language) sont autorisées sur les tables externes. Cela signifie que pour ajouter une nouvelle colonne à une table externe, vous devez recréer la table en supprimant l'ancienne avec DROP et ensuite créer à nouveau la table avec la colonne ajoutée.
+
+Définitions importantes :
+- **PolyBase** : Une technologie qui permet de requêter des données externes (comme des fichiers Parquet) sans les importer dans la base de données.
+- **External Table** : Une table qui référence des données externes, dans ce cas des fichiers stockés dans Azure Data Lake Storage Gen2.
+- **DDL (Data Definition Language)** : Un ensemble de commandes SQL utilisé pour définir et modifier la structure des objets de la base de données.
+
+Justifications des mauvaises réponses :
+- **A) DROP EXTERNAL FILE FORMAT** : Il s'agit d'une suppression de format de fichier, ce qui n'ajoute pas la colonne ItemID à la table.
+- **B) ALTER TABLE ... ADD** : La commande ALTER TABLE n'est pas autorisée pour modifier les tables externes.
+- **D) ALTER TABLE ... ADD [ItemID] int** : Même justification que pour la réponse B, ALTER TABLE n'est pas applicable aux tables externes.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Data Factory avec stockage Parquet et comportement de copie
+
+You have two Azure Storage accounts named Storage1 and Storage2. Each account holds one container and has the hierarchical namespace enabled. The system has files that contain data stored in the Apache Parquet format.
+You need to copy folders and files from Storage1 to Storage2 by using a Data Factory copy activity. The solution must meet the following requirements:
+- No transformations must be performed.
+- The original folder structure must be retained.
+- Minimize time required to perform the copy activity.
+
+How should you configure the copy activity? To answer, select the appropriate options in the answer area.
+
+Options :
+- Source dataset type: Binary, Parquet, Delimited text
+- Copy activity copy behavior: FlattenHierarchy, MergeFiles, PreserveHierarchy","Réponse correcte :
+- Source dataset type : Parquet
+- Copy activity copy behavior : PreserveHierarchy
+
+Explication :
+Pour les jeux de données Parquet, la propriété 'type' de la source d'activité de copie doit être définie sur ParquetSource.
+Le comportement 'PreserveHierarchy' (par défaut) préserve la hiérarchie des fichiers dans la cible. Le chemin relatif de la source est identique dans la cible.
+
+Définitions importantes :
+- **Parquet** : Un format de stockage de données en colonnes, optimisé pour les systèmes Big Data.
+- **PreserveHierarchy** : Conserve la structure de dossiers de la source dans la destination.
+
+Justifications des mauvaises réponses :
+- **FlattenHierarchy** : Cette option place tous les fichiers de la source dans le premier niveau du dossier cible.
+- **MergeFiles** : Combine tous les fichiers de la source dans un seul fichier, ce qui ne permet pas de préserver la hiérarchie des dossiers.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Data Factory avec stockage Parquet et comportement de copie
+
+You have two Azure Storage accounts named Storage1 and Storage2. Each account holds one container and has the hierarchical namespace enabled. The system has files that contain data stored in the Apache Parquet format.
+You need to copy folders and files from Storage1 to Storage2 by using a Data Factory copy activity. The solution must meet the following requirements:
+- No transformations must be performed.
+- The original folder structure must be retained.
+- Minimize time required to perform the copy activity.
+
+How should you configure the copy activity? To answer, select the appropriate options in the answer area.
+
+Options :
+- Source dataset type: Binary, Parquet, Delimited text
+- Copy activity copy behavior: FlattenHierarchy, MergeFiles, PreserveHierarchy","Réponse correcte :
+- Source dataset type : Parquet
+- Copy activity copy behavior : PreserveHierarchy
+
+Explication :
+Pour les jeux de données Parquet, la propriété 'type' de la source d'activité de copie doit être définie sur ParquetSource.
+Le comportement 'PreserveHierarchy' (par défaut) préserve la hiérarchie des fichiers dans la cible. Le chemin relatif de la source est identique dans la cible.
+
+Définitions importantes :
+- **Parquet** : Un format de stockage de données en colonnes, optimisé pour les systèmes Big Data.
+- **PreserveHierarchy** : Conserve la structure de dossiers de la source dans la destination.
+
+Justifications des mauvaises réponses :
+- **FlattenHierarchy** : Cette option place tous les fichiers de la source dans le premier niveau du dossier cible.
+- **MergeFiles** : Combine tous les fichiers de la source dans un seul fichier, ce qui ne permet pas de préserver la hiérarchie des dossiers.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Data Lake Storage Gen2 avec options de redondance
+
+You have an Azure Data Lake Storage Gen2 container that contains 100 TB of data.
+You need to ensure that the data in the container is available for read workloads in a secondary region if an outage occurs in the primary region. The solution must minimize costs.
+
+Which type of data redundancy should you use?
+
+Options:
+- Geo-redundant storage (GRS)
+- Read-access geo-redundant storage (RA-GRS)
+- Zone-redundant storage (ZRS)
+- Locally-redundant storage (LRS)","Réponse correcte :
+- Read-access geo-redundant storage (RA-GRS)
+
+Explication :
+Le stockage géo-redondant (GRS ou GZRS) réplique vos données dans un autre emplacement physique de la région secondaire pour protéger contre les pannes régionales. Cependant, les données ne sont disponibles en lecture qu'en cas de basculement de la région principale vers la région secondaire. En utilisant RA-GRS, les données peuvent être lues directement depuis la région secondaire sans attendre un basculement.
+
+Définitions importantes :
+- **GRS (Geo-Redundant Storage)** : Réplique les données dans une région secondaire mais nécessite un basculement pour lire les données.
+- **RA-GRS (Read-Access Geo-Redundant Storage)** : Permet de lire les données depuis la région secondaire sans basculement.
+
+Justifications des mauvaises réponses :
+- **GRS** : Moins coûteux que RA-GRS, mais ne permet pas de lire les données sans un basculement manuel.
+- **ZRS (Zone-Redundant Storage)** : Offre une redondance locale au sein d'une même région mais ne fournit pas de redondance régionale.
+- **LRS (Locally-Redundant Storage)** : Réplique les données uniquement au sein d'une même région, offrant moins de résilience en cas de panne régionale.
+
+Tags: #examTopics"
+"#examTopics | Question - Azure Data Lake Gen2 avec options de réplication
+
+You plan to implement an Azure Data Lake Gen2 storage account.
+You need to ensure that the data lake will remain available if a data center fails in the primary Azure region. The solution must minimize costs.
+
+Which type of replication should you use for the storage account?
+
+Options:
+- Geo-redundant storage (GRS)
+- Geo-zone-redundant storage (GZRS)
+- Locally-redundant storage (LRS)
+- Zone-redundant storage (ZRS)","Réponse correcte :
+- Zone-redundant storage (ZRS)
+
+Explication :
+Le stockage redondant par zone (ZRS) réplique vos données de manière synchrone à travers trois zones de disponibilité Azure dans la région primaire. Cela garantit que les données restent disponibles même en cas de panne d'un centre de données dans la région principale.
+
+Définitions importantes :
+- **ZRS (Zone-Redundant Storage)** : Réplication synchrone entre trois zones de disponibilité dans la région primaire, offrant une haute disponibilité.
+
+Justifications des mauvaises réponses :
+- **GRS** : Moins coûteux, mais nécessite un basculement manuel pour accéder aux données dans la région secondaire.
+- **GZRS** : Offre une redondance géographique similaire à ZRS, mais avec une capacité à accéder aux données en lecture dans une région secondaire.
+- **LRS** : Réplique les données trois fois dans une même région physique, mais ne protège pas contre les pannes de zone ou de région.
+
+Tags: #examTopics"
+"#examTopics | Question - SQL Pool dans Azure Synapse avec table de staging
+
+You have a SQL pool in Azure Synapse.
+You plan to load data from Azure Blob storage to a staging table. Approximately 1 million rows of data will be loaded daily. The table will be truncated before each daily load.
+
+You need to create the staging table. The solution must minimize how long it takes to load the data to the staging table.
+How should you configure the table?
+
+Options for configuration:
+- Distribution: Hash, Replicated, Round-robin
+- Indexing: Clustered, Clustered columnstore, Heap
+- Partitioning: Date, None","Réponse correcte :
+- Distribution: Round-robin
+- Indexing: Heap
+- Partitioning: None
+
+Explication :
+Le **round-robin** est utilisé pour répartir les données de manière uniforme et améliorer les performances du chargement. L'utilisation d'un **heap** (table non indexée) minimise le temps d'insertion car aucun index n'a besoin d'être mis à jour. Étant donné que la table est **truncatée** chaque jour, il n'y a pas besoin de partitionnement.
+
+Définitions importantes :
+- **Round-robin distribution** : Les données sont réparties uniformément sans aucun critère spécifique, ce qui est efficace pour les tables de staging temporaires.
+- **Heap** : Une table sans index, ce qui réduit le temps d'insertion pour des chargements rapides.
+- **Partitioning** : Séparation des données en plusieurs sections basées sur une clé. Ici, inutile car la table est recréée chaque jour.
+
+Justifications des mauvaises réponses :
+- **Hash Distribution** : Non nécessaire pour des données temporaires où le temps d'accès par hachage est superflu.
+- **Clustered/Clustered Columnstore Index** : Ces options d'indexation seraient plus lentes pour les chargements rapides et ne sont pas utiles pour une table qui est toujours tronquée.
+- **Partitioning (Date)** : Inutile car la table est supprimée et recréée quotidiennement.
+
+Tags: #examTopics"
+"#examTopics | Question - FactPurchase dans Azure Synapse Analytics SQL pool
+
+You are designing a fact table named FactPurchase in an Azure Synapse Analytics dedicated SQL pool.
+The table contains purchases from suppliers for a retail store. FactPurchase will contain the following columns:
+- PurchaseKey (Bigint, Non-Nullable)
+- DateKey (Int, Non-Nullable)
+- SupplierKey (Int, Non-Nullable)
+- StockItemKey (Int, Non-Nullable)
+- PurchaseOrderID (Int, Nullable)
+- OrderedQuantity (Int, Non-Nullable)
+- ReceivedOuters (Int, Non-Nullable)
+- OrderedOuters (Int, Non-Nullable)
+- Package (Nvarchar(50), Nullable)
+- IsOrderFinalized (Bit, Non-Nullable)
+- LineageKey (Int, Non-Nullable)
+
+FactPurchase will have 1 million rows of data added daily and will contain three years of data.
+Transact-SQL queries similar to the following query will be executed daily:
+```
+SELECT SupplierKey, StockItemKey, IsOrderFinalized, COUNT(*)
+FROM FactPurchase
+WHERE DateKey >= 20210101 AND DateKey <= 20210131
+GROUP BY SupplierKey, StockItemKey, IsOrderFinalized;
+```
+
+Which table distribution will minimize query times?
+Options:
+A) replicated
+B) hash-distributed on PurchaseKey
+C) round-robin
+D) hash-distributed on IsOrderFinalized","Réponse correcte :
+- **B) hash-distributed on PurchaseKey**
+
+Explication :
+Les tables distribuées par hachage améliorent les performances des requêtes sur de grandes tables de fait.
+En répartissant les lignes de la table en fonction de la clé **PurchaseKey**, chaque distribution peut être équilibrée pour réduire le temps de requête. La **PurchaseKey** est une bonne candidate pour la distribution, car elle possède de nombreuses valeurs uniques, ce qui est optimal pour une distribution par hachage.
+
+Définitions importantes :
+- **Hash-distributed table** : Les lignes de la table sont réparties dans plusieurs distributions en fonction de la valeur de la colonne sélectionnée, ce qui améliore les performances des grandes tables.
+- **Replicated table** : La table est répliquée sur tous les nœuds de calcul, ce qui est plus approprié pour de petites tables dimensionnelles.
+- **Round-robin** : Une méthode de distribution uniforme utilisée pour les tables temporaires ou de staging, mais moins performante pour les grandes tables de faits.
+
+Justifications des mauvaises réponses :
+- **Replicated** : Non optimal pour une grande table de faits en raison des coûts de réplication.
+- **Round-robin** : Réduit les performances lors des jointures avec de grandes tables.
+- **Hash-distributed sur IsOrderFinalized** : Moins efficace, car **IsOrderFinalized** n'a que peu de valeurs distinctes (oui/non), ce qui entraînerait une répartition inégale des données.
+
+Tags: #examTopics"
